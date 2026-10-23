@@ -1,1 +1,371 @@
-<!DOCTYPE html><html lang=id><meta charset=UTF-8>... SAMPAI ...<div id=to class="hidden fixed bottom-20 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-3 py-1 rounded-full text-xs font-bold"></div></div></div><div id=cm class="fixed inset-0 bg-black/60 hidden z-50... SAMPAI ...</script></body></html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ruang Lega V5 FIX</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Merriweather&family=Caveat:wght@600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+.fj{font-family:'Plus Jakarta Sans'}
+.fs{font-family:'Merriweather'}
+.fh{font-family:'Caveat';font-size:1.25em}
+.fm{font-family:'JetBrains Mono'}
+</style>
+</head>
+<body class="bg-[#0a0f0e] text-white">
+<div class="max-w-md mx-auto min-h-screen bg-[#121916] flex flex-col">
+
+<!-- LOGIN -->
+<div id="a" class="flex-1 flex flex-col justify-center p-6">
+<h1 class="text-2xl font-bold text-center">
+🌿 Ruang Lega V5<br>
+<span class="text-xs text-emerald-400">Profil • Font • Hashtag • Emot • Privat OK</span>
+</h1>
+<input id="e" placeholder="Email" class="w-full mt-4 p-3 rounded-xl bg-[#1a2520] border border-[#1f332b]">
+<input id="p" type="password" placeholder="Password min 6" class="w-full mt-2 p-3 rounded-xl bg-[#1a2520] border border-[#1f332b]">
+<button id="bL" class="w-full mt-3 bg-emerald-500 text-black p-3 rounded-xl font-bold">Masuk / Daftar</button>
+<p id="m" class="text-xs text-red-400 text-center mt-2"></p>
+</div>
+
+<!-- MAIN -->
+<div id="ms" class="hidden flex-1 flex-col">
+<header class="p-3 flex justify-between border-b border-[#1f332b]">
+<div class="flex gap-2 items-center">
+<div id="ha" class="w-8 h-8 rounded-full bg-[#1a2520] flex items-center justify-center">🌿</div>
+<div>
+<p class="text-sm font-bold">Ruang Lega</p>
+<p id="hn" class="text-[10px] text-[#7a9a8a]">Anonim</p>
+</div>
+</div>
+<button id="bO" class="text-xs bg-[#1a2520] px-3 py-1 rounded-full">Keluar</button>
+</header>
+
+<div id="fb" class="p-2 border-b border-[#1f332b]">
+<input id="sr" placeholder="🔍 Cari judul #hashtag" class="w-full p-2 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs">
+<div class="flex gap-1 mt-2 overflow-x-auto">
+<button data-t="Semua" class="fc active px-2 py-1 rounded-full bg-emerald-500 text-black text-[10px]">Semua</button>
+<button data-t="Burnout" class="fc px-2 py-1 rounded-full bg-[#1a2520] text-[10px]">#Burnout</button>
+<button data-t="CemasKuliah" class="fc px-2 py-1 rounded-full bg-[#1a2520] text-[10px]">#Cemas</button>
+</div>
+</div>
+
+<div class="flex-1 overflow-y-auto p-3 pb-24">
+<!-- BERANDA -->
+<div id="vb">
+<div id="pl" class="space-y-2"></div>
+</div>
+
+<!-- TULIS -->
+<div id="vt" class="hidden">
+<div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-3">
+<input id="jd" placeholder="Judul cerita..." class="w-full p-2 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm font-bold mb-2">
+<div class="flex gap-1 mb-2">
+<select id="fs" class="flex-1 p-2 rounded-full bg-[#0d1411] border border-[#1f332b] text-[10px]">
+<option value="fj">Jakarta</option>
+<option value="fs">Serif</option>
+<option value="fh">Tangan</option>
+<option value="fm">Mono</option>
+</select>
+<select id="as" class="flex-1 p-2 rounded-full bg-[#0d1411] border border-[#1f332b] text-[10px]">
+<option value="text-left">Kiri</option>
+<option value="text-center">Tengah</option>
+</select>
+<button id="bB" class="px-2 py-1 border rounded-full text-[10px] font-bold">B</button>
+<button id="bI" class="px-2 py-1 border rounded-full text-[10px] italic">I</button>
+<button id="bE" class="px-2 py-1 border rounded-full text-[10px]">😊</button>
+</div>
+<textarea id="ct" placeholder="Tulis cerita..." class="w-full bg-[#0d1411] p-3 rounded-xl border border-[#1f332b] h-24 text-sm fj"></textarea>
+<div id="eg" class="hidden grid grid-cols-8 gap-1 mt-1"></div>
+<div class="flex gap-1 mt-2">
+<select id="mo" class="flex-1 p-2 rounded-full bg-[#0d1411] border border-[#1f332b] text-[10px]">
+<option>😔 Sedih</option>
+<option>😰 Cemas</option>
+<option>😊 Lega</option>
+</select>
+<select id="tg" class="flex-1 p-2 rounded-full bg-[#0d1411] border border-[#1f332b] text-[10px]">
+<option>Burnout</option>
+<option>CemasKuliah</option>
+<option>AnakPertama</option>
+</select>
+</div>
+<input id="ht" placeholder="#hashtag pisah koma" class="w-full mt-2 p-2 rounded-xl bg-[#0d1411] border border-[#1f332b] text-[10px]">
+<label class="flex justify-between mt-2 bg-[#0d1411] p-2 rounded-xl text-xs border border-[#1f332b]">
+<span>🌍 Publik Anonim</span>
+<input id="ip" type="checkbox" checked>
+</label>
+<button id="bK" class="w-full bg-emerald-500 text-black p-3 rounded-xl mt-2 font-bold text-sm">✨ Kirim</button>
+</div>
+</div>
+
+<!-- PRIVAT -->
+<div id="vc" class="hidden">
+<div class="flex justify-between mb-2">
+<b class="text-sm">🔒 Privat FIX</b>
+<span id="pc" class="text-[10px] bg-emerald-500 text-black px-2 py-0.5 rounded-full">0</span>
+</div>
+<div id="lc" class="space-y-2"></div>
+</div>
+
+<!-- PROFIL -->
+<div id="vp" class="hidden">
+<div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-4">
+<div class="text-center">
+<div id="pa" class="w-14 h-14 mx-auto rounded-full bg-[#0d1411] flex items-center justify-center text-2xl">🌿</div>
+<p id="pe" class="text-[10px] text-[#7a9a8a] mt-1"></p>
+</div>
+<div id="ag" class="grid grid-cols-6 gap-1 mt-3"></div>
+<input id="pn" placeholder="Nama Anonim" class="w-full mt-3 p-2 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm">
+<input id="pb" placeholder="Bio singkat" class="w-full mt-2 p-2 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm">
+<button id="bS" class="w-full bg-emerald-500 text-black p-2 rounded-xl mt-2 text-sm font-bold">Simpan Profil</button>
+</div>
+</div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="fixed bottom-0 w-full max-w-md bg-[#121916] border-t border-[#1f332b] flex">
+<button data-v="b" class="nv flex-1 p-2 text-[10px] bg-emerald-500 text-black">🏠<br>Beranda</button>
+<button data-v="t" class="nv flex-1 p-2 text-[10px]">✍️<br>Tulis</button>
+<button data-v="c" class="nv flex-1 p-2 text-[10px]">🔒<br>Privat</button>
+<button data-v="p" class="nv flex-1 p-2 text-[10px]">👤<br>Profil</button>
+  </div><!-- SAMBUNGAN CODE 1 -->
+<button data-v="c" class="nv flex-1 p-2 text-[10px]">🔒<br>Privat</button>
+<button data-v="p" class="nv flex-1 p-2 text-[10px]">👤<br>Profil</button>
+</div>
+
+<div id="to" class="hidden fixed bottom-20 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-3 py-1 rounded-full text-xs font-bold"></div>
+</div>
+</div>
+
+<!-- MODAL KOMEN -->
+<div id="cm" class="fixed inset-0 bg-black/60 hidden z-50 flex items-end justify-center">
+<div class="bg-[#121916] w-full max-w-md rounded-t-xl max-h-[70vh] flex flex-col border border-[#1f332b]">
+<div class="p-3 border-b border-[#1f332b] flex justify-between">
+<b class="text-sm">💬 Komen</b>
+<button id="cx">✕</button>
+</div>
+<div id="cl" class="flex-1 overflow-y-auto p-3 space-y-2"></div>
+<div class="p-2 border-t border-[#1f332b] flex gap-2">
+<input id="ci" placeholder="Komen anonim..." class="flex-1 bg-[#0d1411] border border-[#1f332b] p-2 rounded-full text-xs">
+<button id="cs" class="bg-emerald-500 text-black px-4 rounded-full text-xs font-bold">Kirim</button>
+</div>
+</div>
+</div>
+
+<!-- FIREBASE SCRIPT -->
+<script type="module">
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {getAuth,signInWithEmailAndPassword,createUserWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {getFirestore,collection,addDoc,query,where,onSnapshot,serverTimestamp,doc,updateDoc,increment,arrayUnion,arrayRemove,getDoc,setDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const cfg={
+apiKey:"AIzaSyDCMGFYKAFXcAWdVAgd35P7BCH8cXuxgmU",
+authDomain:"ruang-lega.firebaseapp.com",
+projectId:"ruang-lega",
+storageBucket:"ruang-lega.firebasestorage.app",
+messagingSenderId:"854510951413",
+appId:"1:854510951413:web:0582a9f3852ed4775bdebc"
+};
+const app=initializeApp(cfg);
+const auth=getAuth(app);
+const db=getFirestore(app);
+const $=id=>document.getElementById(id);
+
+let cur=null,cache=[],pcache=[],act=null,cf="fj",ca="text-left",bB=false,bI=false,sel="🌿";
+const avs=["🌿","😊","🥰","😔","😰","😎","🌙","🔥","💜","🍀","🐱","🐶"];
+const emos=["😊","😂","😭","😔","😰","😡","🥰","🤗","😴","🙏","💜","🔥","✨","💪","🌿","🍀"];
+
+function toast(m){
+let t=$("to");
+t.textContent=m;
+t.classList.remove("hidden");
+setTimeout(()=>t.classList.add("hidden"),2000)
+}
+function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+function fmt(ts){return ts?.toDate?ts.toDate().toLocaleDateString("id-ID"):"Baru"}
+
+$("bL").onclick=async()=>{
+let e=$("e").value,p=$("p").value;
+if(!e||p.length<6){$("m").textContent="Isi email & pass min 6";return}
+try{await signInWithEmailAndPassword(auth,e,p)}
+catch{try{await createUserWithEmailAndPassword(auth,e,p)}catch(err){$("m").textContent=err.message}}
+};
+$("bO").onclick=()=>signOut(auth);
+$("bE").onclick=()=>{$("eg").classList.toggle("hidden")};
+$("eg").innerHTML=emos.map(em=>`<button class="text-sm p-1" onclick="ins('${em}')">${em}</button>`).join("");
+window.ins=e=>{$("ct").value+=" "+e};
+$("ag").innerHTML=avs.map(a=>`<button class="av w-8 h-8 rounded-full bg-[#0d1411] border border-[#1f332b]" data-a="${a}">${a}</button>`).join("");
+
+document.addEventListener("click",e=>{
+if(e.target.classList.contains("av")){
+document.querySelectorAll(".av").forEach(b=>b.classList.remove("border-emerald-500","border-2"));
+e.target.classList.add("border-emerald-500","border-2");
+sel=e.target.dataset.a;
+$("pa").textContent=sel;
+$("ha").textContent=sel
+}
+});
+
+$("fs").onchange=e=>{cf=e.target.value;up()};
+$("as").onchange=e=>{ca=e.target.value;up()};
+$("bB").onclick=()=>{bB=!bB;$("bB").classList.toggle("bg-emerald-500");up()};
+$("bI").onclick=()=>{bI=!bI;$("bI").classList.toggle("bg-emerald-500");up()};
+function up(){
+$("ct").className=`w-full bg-[#0d1411] p-3 rounded-xl border border-[#1f332b] h-24 text-sm ${cf} ${ca} ${bB?'font-bold':''} ${bI?'italic':''}`
+};
+
+$("bK").onclick=async()=>{
+let t=$("jd").value.trim(),c=$("ct").value.trim();
+if(!t||!c){toast("Isi judul & cerita");return}
+$("bK").textContent="Kirim...";
+try{
+let h=$("ht").value.split(",").map(s=>s.trim()).filter(s=>s).map(s=>s.replace("#",""));
+let pay={uid:cur.uid,title:t,text:c,mood:$("mo").value,tag:$("tg").value,hashtags:h,font:cf,align:ca,bold:bB,italic:bI,createdAt:serverTimestamp()};
+await addDoc(collection(db,"curhat"),pay);
+if($("ip").checked){
+await addDoc(collection(db,"cerita_publik"),{uid:cur.uid,title:t,text:c,mood:$("mo").value,tag:$("tg").value,hashtags:h,font:cf,align:ca,bold:bB,italic:bI,likes:[],likesCount:0,commentsCount:0,sharesCount:0,createdAt:serverTimestamp(),author:$("pn").value||"Anonim",avatar:sel})
+}
+$("jd").value="";$("ct").value="";$("ht").value="";
+toast("Terkirim ✨");
+document.querySelector('[data-v="b"]').click()
+}catch(e){alert(e.message)}
+$("bK").textContent="✨ Kirim"
+};
+
+function rp(){
+let list=cache;
+let tag=document.querySelector(".fc.active")?.dataset.t||"Semua";
+if(tag!="Semua")list=list.filter(d=>d.tag==tag);
+let s=$("sr").value.toLowerCase();
+if(s)list=list.filter(d=>(d.title+" "+d.text+" "+(d.hashtags||[]).join(" ")).toLowerCase().includes(s));
+if(!list.length){$("pl").innerHTML='<p class="text-center text-xs text-[#7a9a8a] py-8">Belum ada cerita</p>';return}
+$("pl").innerHTML=list.map(d=>{
+let lk=d.likes?.includes(cur?.uid);
+return `<div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-3">
+<div class="flex justify-between text-[10px] text-[#7a9a8a]"><span>#${d.tag}</span><span>${fmt(d.createdAt)}</span></div>
+<div class="flex gap-1 items-center mt-1"><span class="text-xs">${d.avatar||"🌿"}</span><b class="text-xs">${esc(d.author||"Anonim")}</b></div>
+<b class="text-sm block mt-1">${esc(d.title||"")}</b>
+<p class="text-[13px] mt-1 whitespace-pre-wrap ${d.font||"fj"} ${d.align||""} ${d.bold?"font-bold":""} ${d.italic?"italic":""}">${esc(d.text)}</p>
+${d.hashtags?.length?`<p class="text-[10px] text-emerald-400 mt-1">${d.hashtags.map(h=>"#"+esc(h)).join(" ")}</p>`:""}
+<div class="flex justify-between mt-2 pt-2 border-t border-[#1f332b] text-[11px]">
+<button onclick="like('${d.id}')" class="${lk?'text-red-400':''}">${lk?'❤️':'🤍'} ${d.likesCount||0}</button>
+<button onclick="openC('${d.id}')">💬 ${d.commentsCount||0}</button>
+<button onclick="share('${d.id}')">🔗 Share</button>
+<button onclick="repost('${d.id}')">🔁 ${d.sharesCount||0}</button>
+</div></div>`
+}).join("")
+}
+
+function rc(){
+let list=pcache.slice().sort((a,b)=>(b.createdAt?.toDate?.()?.getTime()||0)-(a.createdAt?.toDate?.()?.getTime()||0));
+$("pc").textContent=list.length;
+if(!list.length){$("lc").innerHTML='<p class="text-center text-xs text-[#7a9a8a] py-8">Belum ada privat</p>';return}
+$("lc").innerHTML=list.map(d=>`<div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-3">
+<span class="text-[9px] bg-emerald-500 text-black px-2 py-0.5 rounded-full">#${d.tag}</span>
+<b class="text-sm block mt-1">${esc(d.title||"")}</b>
+<p class="text-[13px] mt-1 ${d.font||"fj"} ${d.bold?"font-bold":""} ${d.italic?"italic":""}">${esc(d.text)}</p>
+</div>`).join("")
+}
+
+window.like=async id=>{
+let r=doc(db,"cerita_publik",id),s=await getDoc(r),lk=s.data().likes?.includes(cur.uid);
+if(lk)await updateDoc(r,{likes:arrayRemove(cur.uid),likesCount:increment(-1)});
+else await updateDoc(r,{likes:arrayUnion(cur.uid),likesCount:increment(1)})
+};
+
+window.openC=id=>{
+act=id;$("cm").classList.remove("hidden");
+let col=collection(db,"cerita_publik",id,"comments");
+onSnapshot(query(col),snap=>{
+let l=$("cl");
+if(snap.empty){l.innerHTML='<p class="text-xs text-center py-6">Belum ada komen</p>';return}
+l.innerHTML=snap.docs.map(d=>`<div class="bg-[#0d1411] p-2 rounded-xl text-xs border border-[#1f332b]">${esc(d.data().text)}</div>`).join("")
+})
+};
+
+window.share=async id=>{
+await navigator.clipboard.writeText("https://mohamadyasserarafath-ctrl.github.io/Ruang-Lega/");
+toast("Link disalin");
+await updateDoc(doc(db,"cerita_publik",id),{sharesCount:increment(1)})
+};
+
+window.repost=async id=>{
+if(!confirm("Bagikan ulang?"))return;
+let o=cache.find(x=>x.id==id);
+await addDoc(collection(db,"cerita_publik"),{title:o.title,text:o.text,mood:o.mood,tag:o.tag,hashtags:o.hashtags||[],font:o.font,align:o.align,bold:o.bold,italic:o.italic,likes:[],likesCount:0,commentsCount:0,sharesCount:0,createdAt:serverTimestamp(),author:$("pn").value||"Anonim",avatar:sel,uid:cur.uid,repostedFrom:id});
+await updateDoc(doc(db,"cerita_publik",id),{sharesCount:increment(1)});
+toast("Dibagikan")
+};
+
+$("cx").onclick=()=>$("cm").classList.add("hidden");
+$("cs").onclick=async()=>{
+let t=$("ci").value.trim();
+if(!t||!act)return;
+await addDoc(collection(db,"cerita_publik",act,"comments"),{text:t,uid:cur.uid,author:$("pn").value||"Anonim",createdAt:serverTimestamp()});
+await updateDoc(doc(db,"cerita_publik",act),{commentsCount:increment(1)});
+$("ci").value=""
+};
+
+document.querySelectorAll(".fc").forEach(b=>{
+b.onclick=()=>{
+document.querySelectorAll(".fc").forEach(x=>x.className="fc px-2 py-1 rounded-full bg-[#1a2520] text-[10px]");
+b.className="fc active px-2 py-1 rounded-full bg-emerald-500 text-black text-[10px]";
+rp()
+}
+});
+$("sr").oninput=rp;
+
+document.querySelectorAll(".nv").forEach(btn=>{
+btn.onclick=()=>{
+let v=btn.dataset.v;
+document.querySelectorAll(".nv").forEach(x=>x.className="nv flex-1 p-2 text-[10px]");
+btn.className="nv flex-1 p-2 text-[10px] bg-emerald-500 text-black";
+$("vb").classList.toggle("hidden",v!="b");
+$("vt").classList.toggle("hidden",v!="t");
+$("vc").classList.toggle("hidden",v!="c");
+$("vp").classList.toggle("hidden",v!="p");
+$("fb").classList.toggle("hidden",v!="b")
+}
+});
+
+$("bS").onclick=async()=>{
+await setDoc(doc(db,"profiles",cur.uid),{displayName:$("pn").value,bio:$("pb").value,avatar:sel,updatedAt:serverTimestamp()},{merge:true});
+$("ha").textContent=sel;
+$("hn").textContent=$("pn").value||"Anonim";
+toast("Profil disimpan")
+};
+
+onAuthStateChanged(auth,async u=>{
+if(u){
+cur=u;$("a").classList.add("hidden");$("ms").classList.remove("hidden");$("ms").classList.add("flex");
+$("pe").textContent=u.email;
+try{
+let ps=await getDoc(doc(db,"profiles",u.uid));
+if(ps.exists()){
+let d=ps.data();
+$("pn").value=d.displayName||"";
+$("pb").value=d.bio||"";
+sel=d.avatar||"🌿";
+$("pa").textContent=sel;
+$("ha").textContent=sel;
+$("hn").textContent=d.displayName||"Anonim"
+}
+}catch{}
+onSnapshot(query(collection(db,"cerita_publik")),s=>{
+cache=[];s.forEach(d=>cache.push({id:d.id,...d.data()}));
+cache.sort((a,b)=>(b.createdAt?.toDate?.()?.getTime()||0)-(a.createdAt?.toDate?.()?.getTime()||0));
+rp()
+});
+onSnapshot(query(collection(db,"curhat"),where("uid","==",u.uid)),s=>{
+pcache=[];s.forEach(d=>pcache.push({id:d.id,...d.data()}));
+rc()
+})
+}else{
+$("ms").classList.add("hidden");
+$("a").classList.remove("hidden")
+}
+});
+</script>
+</body>
+</html>
