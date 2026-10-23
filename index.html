@@ -3,66 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ruang Lega V6.1 - Anti Mentok</title>
+<title>Ruang Lega V6.2 FULL</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-.fj{font-family:sans-serif}
-.fs{font-family:serif}
-.fh{font-family:cursive}
+*{font-family:'Plus Jakarta Sans',sans-serif}
+::-webkit-scrollbar{display:none}
 </style>
 </head>
 <body class="bg-[#0a0f0e] text-white">
 <div class="max-w-md mx-auto min-h-screen bg-[#121916] flex flex-col relative">
+<div id="authPage" class="fixed inset-0 z-[100] bg-[#0a0f0e] flex flex-col items-center justify-center p-6 max-w-md mx-auto">
+<div class="w-20 h-20 rounded-full bg-emerald-500 flex items-center justify-center text-4xl">🌿</div>
+<h1 class="text-2xl font-bold mt-4">Ruang Lega</h1>
+<p class="text-xs text-[#7a9a8a] mt-1 text-center">Ruang aman untuk cerita, peluk, dan healing</p>
+<div class="w-full mt-6 bg-[#1a2520] border border-[#1f332b] rounded-2xl p-4">
+<input id="email" type="email" placeholder="Email" class="w-full p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm mb-2">
+<input id="pass" type="password" placeholder="Password (min 6)" class="w-full p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm">
+<div id="authMsg" class="text-[11px] text-red-400 mt-2 hidden"></div>
+<button id="loginBtn" class="w-full bg-emerald-500 text-black p-3 rounded-xl mt-3 font-bold text-sm">Masuk</button>
+<button id="regBtn" class="w-full bg-[#0d1411] border border-[#1f332b] p-3 rounded-xl mt-2 font-bold text-sm">Daftar Akun Baru</button>
+<div class="flex items-center gap-2 my-3"><div class="h-px flex-1 bg-[#1f332b]"></div><span class="text-[10px] text-[#7a9a8a]">ATAU</span><div class="h-px flex-1 bg-[#1f332b]"></div></div>
+<button id="guestBtn" class="w-full bg-[#1f332b] p-3 rounded-xl font-bold text-sm">🚀 Masuk sebagai Tamu (Demo)</button>
+<p class="text-[10px] text-[#7a9a8a] mt-3 text-center">Tamu = langsung jalan tanpa verifikasi email</p>
+</div>
+</div>
+
 <header class="p-3 flex justify-between items-center border-b border-[#1f332b] sticky top-0 bg-[#121916] z-20">
 <div class="flex gap-2 items-center">
 <div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-black font-bold">🌿</div>
-<div>
-<p class="text-sm font-bold">Ruang Lega V6.1</p>
-<p class="text-[10px] text-emerald-400">Mode Demo - Langsung Jalan</p>
+<div><p class="text-sm font-bold">Ruang Lega V6.2</p><p id="userInfo" class="text-[10px] text-emerald-400">Loading...</p></div>
 </div>
-</div>
-<button id="sosBtn" class="w-8 h-8 rounded-full bg-red-500/20 border border-red-500 text-red-400">🆘</button>
+<div class="flex gap-2"><button id="logoutBtn" class="text-[10px] px-2 py-1 rounded-full bg-[#1a2520] border border-[#1f332b]">Keluar</button><button id="sosBtn" class="w-8 h-8 rounded-full bg-red-500/20 border border-red-500 text-red-400">🆘</button></div>
 </header>
 
 <div class="p-3 bg-[#0f1714] border-b border-[#1f332b]">
 <div class="bg-[#1a2520] border border-emerald-500/30 rounded-xl p-3">
-<p class="text-[10px] text-emerald-400 font-bold">💡 PROMPT HARI INI</p>
-<p id="promptText" class="text-xs mt-1">Apa satu hal kecil yang bikin kamu bertahan hari ini?</p>
+<p class="text-[10px] text-emerald-400 font-bold">💡 PROMPT HARI INI</p><p id="promptText" class="text-xs mt-1"></p>
 <button onclick="usePrompt()" class="text-[10px] bg-emerald-500 text-black px-2 py-1 rounded-full mt-2">Pakai prompt ✍️</button>
 </div>
 <input id="sr" placeholder="🔍 Cari cerita..." class="w-full mt-2 p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs">
-<div class="flex gap-1.5 mt-2 overflow-x-auto">
-<button data-t="Semua" class="fc active px-3 py-1.5 rounded-full bg-emerald-500 text-black text-[10px] font-bold">Semua</button>
-<button data-t="Burnout" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]">#Burnout</button>
-<button data-t="Cemas" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]">#Cemas</button>
-<button data-t="Saved" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]">🔖 Disimpan</button>
+<div class="flex gap-1.5 mt-2 overflow-x-auto pb-1">
+<button data-t="Semua" class="fc active px-3 py-1.5 rounded-full bg-emerald-500 text-black text-[10px] font-bold whitespace-nowrap">Semua</button>
+<button data-t="Burnout" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px] whitespace-nowrap">#Burnout</button>
+<button data-t="Cemas" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px] whitespace-nowrap">#Cemas</button>
+<button data-t="AnakPertama" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px] whitespace-nowrap">#AnakPertama</button>
+<button data-t="Privat" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px] whitespace-nowrap">🔒 Privat</button>
+<button data-t="Saved" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px] whitespace-nowrap">🔖 Simpan</button>
 </div>
 </div>
 
 <div class="flex-1 overflow-y-auto p-3 pb-28">
 <div id="vb">
 <div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-3 mb-3">
-<div class="flex justify-between"><b class="text-xs">📊 Mood</b><span id="totalPost" class="text-[10px] bg-[#0d1411] px-2 py-1 rounded-full">0 cerita</span></div>
+<div class="flex justify-between"><b class="text-xs">📊 Mood Komunitas</b><span id="totalPost" class="text-[10px] bg-[#0d1411] px-2 py-1 rounded-full">0 cerita</span></div>
 <div id="moodBar" class="flex gap-1 mt-2 h-8 items-end"></div>
 </div>
-<div id="pl" class="space-y-3"></div>
+<div id="pl" class="space-y-3"><p class="text-center text-xs text-[#7a9a8a] py-10">Memuat cerita...</p></div>
 </div>
-
 <div id="vt" class="hidden">
 <div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-4">
 <b class="text-sm">✍️ Tulis Curhat</b>
-<input id="jd" placeholder="Judul" class="w-full mt-3 p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm font-bold">
-<textarea id="ct" placeholder="Tulis seleganya..." class="w-full mt-2 bg-[#0d1411] p-3 rounded-xl border border-[#1f332b] h-32 text-sm"></textarea>
+<input id="jd" placeholder="Judul ceritamu..." class="w-full mt-3 p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm font-bold">
+<textarea id="ct" placeholder="Tulis seleganya di sini... aman, anonim, no judge" class="w-full mt-2 bg-[#0d1411] p-3 rounded-xl border border-[#1f332b] h-32 text-sm"></textarea>
 <div class="grid grid-cols-2 gap-2 mt-2">
-<select id="mo" class="p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs">
-<option>😔 Sedih</option><option>😰 Cemas</option><option>😊 Lega</option><option>🥰 Bersyukur</option>
-</select>
-<select id="tg" class="p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs">
-<option>Burnout</option><option>CemasKuliah</option><option>AnakPertama</option><option>Healing</option>
-</select>
+<select id="mo" class="p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs"><option>😔 Sedih</option><option>😰 Cemas</option><option>😠 Marah</option><option>😊 Lega</option><option>🥰 Bersyukur</option><option>😶 Kosong</option></select>
+<select id="tg" class="p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs"><option>Burnout</option><option>CemasKuliah</option><option>AnakPertama</option><option>Healing</option><option>Overthinking</option><option>Relationship</option></select>
 </div>
-<input id="pn" placeholder="Nama Anonim" value="Anonim" class="w-full mt-2 p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm">
-<button id="bK" class="w-full bg-emerald-500 text-black p-3 rounded-xl mt-3 font-bold">✨ Kirim Cerita</button>
+<label class="flex items-center gap-2 text-[11px] mt-2"><input id="isPrivate" type="checkbox"> 🔒 Privat (hanya kamu yang lihat)</label>
+<input id="pn" placeholder="Nama Anonim" class="w-full mt-2 p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm">
+<button id="bK" class="w-full bg-emerald-500 text-black p-3 rounded-xl mt-3 font-bold text-sm">✨ Kirim Cerita</button>
+</div>
+</div>
+<div id="vc" class="hidden">
+<div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-4 text-center">
+<p class="text-sm font-bold">🔖 Cerita Disimpan</p>
+<div id="savedList" class="mt-4 space-y-3 text-left"></div>
 </div>
 </div>
 </div>
@@ -72,127 +88,62 @@
 <button data-v="t" class="nv flex-1 p-3 text-[10px]">✍️<br>Tulis</button>
 <button data-v="c" class="nv flex-1 p-3 text-[10px]">🔖<br>Simpan</button>
 </div>
+<div id="to" class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-4 py-2 rounded-full text-xs font-bold z-50 max-w-[80%] text-center"></div>
 
-<div id="to" class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-4 py-2 rounded-full text-xs font-bold z-50"></div>
-</div>
-
-<!-- SOS MODAL -->
 <div id="sosModal" class="fixed inset-0 bg-black/80 hidden z-[60] flex items-center justify-center p-4">
 <div class="bg-[#121916] w-full max-w-sm rounded-2xl border border-red-500/30 p-5 text-center">
 <div class="w-14 h-14 mx-auto bg-red-500/20 rounded-full flex items-center justify-center text-2xl">🆘</div>
 <h2 class="font-bold mt-3">Kamu Gak Sendiri</h2>
-<p class="text-xs text-[#7a9a8a] mt-1">Hubungi bantuan profesional:</p>
 <a href="tel:119" class="block w-full mt-4 bg-red-500 text-white p-3 rounded-xl font-bold text-sm">📞 Call 119</a>
 <button id="sosClose" class="w-full mt-3 bg-[#1a2520] p-3 rounded-xl text-xs">Tutup 🤗</button>
 </div>
 </div>
 
+<div id="commentModal" class="fixed inset-0 bg-black/80 hidden z-[60] flex items-center justify-center p-4">
+<div class="bg-[#121916] w-full max-w-sm rounded-2xl border border-[#1f332b] p-4 max-h-[80vh] flex flex-col">
+<div class="flex justify-between items-center"><b class="text-sm">💬 Komentar</b><button id="commentClose" class="text-xs px-2 py-1 bg-[#1a2520] rounded-full">Tutup</button></div>
+<div id="commentList" class="flex-1 overflow-y-auto mt-3 space-y-2 text-xs"></div>
+<div class="flex gap-2 mt-3"><input id="commentInput" placeholder="Tulis support..." class="flex-1 p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs"><button id="commentSend" class="px-4 py-2 bg-emerald-500 text-black rounded-full text-xs font-bold">Kirim</button></div>
+</div>
+</div>
+</div>
+
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getFirestore,collection,addDoc,query,onSnapshot,serverTimestamp,doc,updateDoc,increment,arrayUnion,arrayRemove,getDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-const cfg={
-apiKey:"AIzaSyDCMGFYKAFXcAWdVAgd35P7BCH8cXuxgmU",
-authDomain:"ruang-lega.firebaseapp.com",
-projectId:"ruang-lega",
-storageBucket:"ruang-lega.firebasestorage.app",
-messagingSenderId:"854510951413",
-appId:"1:854510951413:web:0582a9f3852ed4775bdebc"
-};
-const app=initializeApp(cfg);
-const db=getFirestore(app);
+import {getFirestore,collection,addDoc,query,onSnapshot,serverTimestamp,doc,updateDoc,increment,arrayUnion,arrayRemove,getDoc,deleteDoc,orderBy} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {getAuth,signInWithEmailAndPassword,createUserWithEmailAndPassword,signInAnonymously,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+const cfg={apiKey:"AIzaSyDCMGFYKAFXcAWdVAgd35P7BCH8cXuxgmU",authDomain:"ruang-lega.firebaseapp.com",projectId:"ruang-lega",storageBucket:"ruang-lega.firebasestorage.app",messagingSenderId:"854510951413",appId:"1:854510951413:web:0582a9f3852ed4775bdebc"};
+const app=initializeApp(cfg);const db=getFirestore(app);const auth=getAuth(app);
 const $=id=>document.getElementById(id);
-let cache=[],savedIds=JSON.parse(localStorage.getItem('saved')||'[]');
+let cache=[],savedIds=JSON.parse(localStorage.getItem('saved')||'[]'),currentUser=null,activeCommentId=null;
 const prompts=["Apa satu hal kecil yang bikin kamu bertahan hari ini?","Kalau cemasmu punya warna, apa warnanya?","Apa yang ingin kamu bilang ke diri kamu 5 tahun lalu?","Tulis 3 hal yang kamu syukuri hari ini"];
 $("promptText").textContent=prompts[Math.floor(Math.random()*prompts.length)];
-window.usePrompt=()=>{$("ct").value=$("promptText").textContent+"\n\n"; document.querySelector('[data-v="t"]').click()};
-
-function toast(m){let t=$("to");t.textContent=m;t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),2000)}
+window.usePrompt=()=>{$("ct").value=$("promptText").textContent+"\n\n";document.querySelector('[data-v="t"]').click()};
+function toast(m){let t=$("to");t.textContent=m;t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),2500)}
 function esc(t){return (t||'').replace(/</g,'&lt;')}
-function fmt(ts){return ts?.toDate?ts.toDate().toLocaleDateString("id-ID"):"Baru"}
-
+function fmt(ts){return ts?.toDate?ts.toDate().toLocaleDateString("id-ID",{day:'2-digit',month:'short'})+" • "+ts?.toDate?.().toLocaleTimeString("id-ID",{hour:'2-digit',minute:'2-digit'}):"Baru"}
+function showAuthMsg(m){let e=$("authMsg");e.textContent=m;e.classList.remove("hidden")}
 $("sosBtn").onclick=()=>$("sosModal").classList.remove("hidden");
 $("sosClose").onclick=()=>$("sosModal").classList.add("hidden");
-
-$("bK").onclick=async()=>{
-let t=$("jd").value.trim(),c=$("ct").value.trim();
-if(!t||!c){toast("Isi judul & cerita");return}
-$("bK").textContent="Mengirim...";
-try{
-await addDoc(collection(db,"cerita_publik"),{
-title:t,text:c,mood:$("mo").value,tag:$("tg").value,author:$("pn").value||"Anonim",avatar:"🌿",
-hugs:[],hugsCount:0,commentsCount:0,createdAt:serverTimestamp()
-});
-$("jd").value="";$("ct").value="";toast("Terkirim ✨");document.querySelector('[data-v="b"]').click()
-}catch(e){toast(e.message)}
-$("bK").textContent="✨ Kirim Cerita"
-};
-
-function rp(){
-let list=cache;
-let tag=document.querySelector(".fc.active")?.dataset.t||"Semua";
-if(tag=="Saved")list=list.filter(d=>savedIds.includes(d.id));
-else if(tag!="Semua")list=list.filter(d=>d.tag==tag||d.mood?.includes(tag));
-let s=$("sr").value.toLowerCase();
-if(s)list=list.filter(d=>(d.title+" "+d.text).toLowerCase().includes(s));
-$("totalPost").textContent=cache.length+" cerita";
-if(!list.length){$("pl").innerHTML='<p class="text-center text-xs text-[#7a9a8a] py-10">Belum ada cerita</p>';return}
-$("pl").innerHTML=list.map(d=>{
-let saved=savedIds.includes(d.id);
-return `<div class="bg-[#1a2520] border border-[#1f332b] rounded-2xl p-4">
-<div class="flex justify-between"><b class="text-xs">${esc(d.author||"Anonim")}</b><span class="text-[10px] text-[#7a9a8a]">#${d.tag} • ${fmt(d.createdAt)}</span></div>
-<b class="text-[14px] block mt-2">${esc(d.title)}</b>
-<p class="text-[13px] mt-2 text-[#c5d5cc] whitespace-pre-wrap">${esc(d.text)}</p>
-<div class="flex justify-between mt-4 pt-3 border-t border-[#1f332b]/50 text-xs">
-<button onclick="hug('${d.id}')">🤗 ${d.hugsCount||0} Peluk</button>
-<button onclick="savePost('${d.id}')" class="${saved?'text-emerald-400':''}">${saved?'🔖 Tersimpan':'🔖 Simpan'}</button>
-<button onclick="share()">🔗 Share</button>
-</div></div>`
-}).join("")
-}
-
-window.hug=async id=>{
-let r=doc(db,"cerita_publik",id);
-let snap=await getDoc(r);
-let uid=localStorage.getItem('myUid')||'anon-'+Math.random().toString(36).slice(2);
-localStorage.setItem('myUid',uid);
-let hg=snap.data().hugs?.includes(uid);
-if(hg)await updateDoc(r,{hugs:arrayRemove(uid),hugsCount:increment(-1)});
-else await updateDoc(r,{hugs:arrayUnion(uid),hugsCount:increment(1)});
-};
-window.savePost=id=>{
-if(savedIds.includes(id))savedIds=savedIds.filter(x=>x!=id);else savedIds.push(id);
-localStorage.setItem('saved',JSON.stringify(savedIds));rp();toast(savedIds.includes(id)?"Disimpan 🔖":"Dihapus")
-};
-window.share=()=>{navigator.clipboard.writeText(location.href);toast("Link disalin 🔗")};
-
-document.querySelectorAll(".fc").forEach(b=>{
-b.onclick=()=>{
-document.querySelectorAll(".fc").forEach(x=>x.className="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]");
-b.className="fc active px-3 py-1.5 rounded-full bg-emerald-500 text-black text-[10px] font-bold";
-rp()
-}
-});
-$("sr").oninput=rp;
-document.querySelectorAll(".nv").forEach(btn=>{
-btn.onclick=()=>{
-let v=btn.dataset.v;
-document.querySelectorAll(".nv").forEach(x=>x.className="nv flex-1 p-3 text-[10px]");
-btn.className="nv flex-1 p-3 text-[10px] bg-emerald-500 text-black font-bold";
-$("vb").classList.toggle("hidden",v!="b");
-$("vt").classList.toggle("hidden",v!="t");
-if(v=="c"){document.querySelector('[data-t="Saved"]').click(); $("vb").classList.remove("hidden"); $("vt").classList.add("hidden")}
-}
-});
-
-onSnapshot(query(collection(db,"cerita_publik")),s=>{
-cache=[];s.forEach(d=>cache.push({id:d.id,...d.data()}));
-cache.sort((a,b)=>(b.createdAt?.toDate?.()?.getTime()||0)-(a.createdAt?.toDate?.()?.getTime()||0));
-let moods={Sedih:0,Cemas:0,Lega:0,Bersyukur:0};cache.forEach(d=>{if(d.mood?.includes("Sedih"))moods.Sedih++;else if(d.mood?.includes("Cemas"))moods.Cemas++;else if(d.mood?.includes("Lega"))moods.Lega++;else moods.Bersyukur++});
-let max=Math.max(...Object.values(moods),1);
-$("moodBar").innerHTML=Object.entries(moods).map(([k,v])=>`<div class="flex-1 bg-emerald-500/60 rounded-t" style="height:${(v/max*100)||5}%"></div>`).join("");
-rp();
-});
+$("commentClose").onclick=()=>$("commentModal").classList.add("hidden");
+$("loginBtn").onclick=async()=>{let e=$("email").value.trim(),p=$("pass").value.trim();if(!e||!p){showAuthMsg("Isi email & password");return}$("loginBtn").textContent="Loading...";try{await signInWithEmailAndPassword(auth,e,p)}catch(err){showAuthMsg(err.message)}$("loginBtn").textContent="Masuk";};
+$("regBtn").onclick=async()=>{let e=$("email").value.trim(),p=$("pass").value.trim();if(!e||!p||p.length<6){showAuthMsg("Password min 6 huruf");return}$("regBtn").textContent="Mendaftar...";try{await createUserWithEmailAndPassword(auth,e,p);toast("Akun dibuat!")}catch(err){showAuthMsg(err.message)}$("regBtn").textContent="Daftar Akun Baru";};
+$("guestBtn").onclick=async()=>{$("guestBtn").textContent="Masuk Tamu...";try{await signInAnonymously(auth)}catch(err){showAuthMsg("Aktifin Anonymous dulu di Firebase > Auth > Sign-in method > Anonymous > Enable. Error: "+err.message)}$("guestBtn").textContent="🚀 Masuk sebagai Tamu (Demo)";};
+$("logoutBtn").onclick=()=>signOut(auth);
+onAuthStateChanged(auth,user=>{if(user){currentUser=user;$("authPage").classList.add("hidden");$("userInfo").textContent=user.isAnonymous?"Tamu • "+user.uid.slice(0,6):user.email;initData()}else{$("authPage").classList.remove("hidden");$("userInfo").textContent="Belum login"}});
+function initData(){onSnapshot(query(collection(db,"cerita_publik"),orderBy("createdAt","desc")),s=>{cache=[];s.forEach(d=>cache.push({id:d.id,...d.data()}));render();});}
+$("bK").onclick=async()=>{let t=$("jd").value.trim(),c=$("ct").value.trim();if(!t||!c){toast("Isi judul & cerita");return}if(!currentUser){toast("Login dulu");return}$("bK").textContent="Mengirim...";try{let col=$("isPrivate").checked?"cerita_privat_"+currentUser.uid:"cerita_publik";await addDoc(collection(db,col),{title:t,text:c,mood:$("mo").value,tag:$("tg").value,author:$("pn").value||"Anonim",avatar:"🌿",uid:currentUser.uid,hugs:[],hugsCount:0,commentsCount:0,createdAt:serverTimestamp(),isPrivate:$("isPrivate").checked});$("jd").value="";$("ct").value="";toast($("isPrivate").checked?"Disimpan privat 🔒":"Terkirim ✨");document.querySelector('[data-v="b"]').click()}catch(e){toast("Error: "+e.message)}$("bK").textContent="✨ Kirim Cerita"};
+function render(){let list=cache;let tag=document.querySelector(".fc.active")?.dataset.t||"Semua";let search=$("sr").value.toLowerCase();if(tag=="Saved"){list=list.filter(d=>savedIds.includes(d.id))}else if(tag=="Privat"){onSnapshot(query(collection(db,"cerita_privat_"+(currentUser?.uid||"none")),orderBy("createdAt","desc")),s=>{let priv=[];s.forEach(d=>priv.push({id:d.id,...d.data()}));display(priv)});return;}else if(tag!="Semua"){list=list.filter(d=>d.tag==tag||d.mood?.includes(tag)||d.tag?.includes(tag))}if(search){list=list.filter(d=>(d.title+" "+d.text+" "+d.tag).toLowerCase().includes(search))}display(list);}
+function display(list){$("totalPost").textContent=cache.length+" cerita";if(!list.length){$("pl").innerHTML='<p class="text-center text-xs text-[#7a9a8a] py-10">Belum ada cerita di filter ini</p>';return}let html=list.map(d=>{let saved=savedIds.includes(d.id);let isMine=currentUser&&d.uid==currentUser.uid;return `<div class="bg-[#1a2520] border border-[#1f332b] rounded-2xl p-4"><div class="flex justify-between items-center"><b class="text-xs">${esc(d.author||"Anonim")} ${d.isPrivate?'🔒':''}</b><span class="text-[10px] text-[#7a9a8a]">#${esc(d.tag)} • ${fmt(d.createdAt)}</span></div><b class="text-[14px] block mt-2">${esc(d.title)}</b><p class="text-[13px] mt-2 text-[#c5d5cc] whitespace-pre-wrap leading-relaxed">${esc(d.text)}</p><div class="text-[10px] mt-2 text-[#7a9a8a]">${esc(d.mood)}</div><div class="flex justify-between mt-4 pt-3 border-t border-[#1f332b]/50 text-xs items-center"><button onclick="hug('${d.id}')">🤗 ${d.hugsCount||0} Peluk</button><button onclick="openComments('${d.id}')">💬 ${d.commentsCount||0}</button><button onclick="savePost('${d.id}')" class="${saved?'text-emerald-400 font-bold':''}">${saved?'🔖 Tersimpan':'🔖 Simpan'}</button><button onclick="sharePost()">🔗 Share</button>${isMine?`<button onclick="delPost('${d.id}')" class="text-red-400">🗑️</button>`:''}</div></div>`}).join("");$("pl").innerHTML=html;let moods={Sedih:0,Cemas:0,Lega:0,Bersyukur:0};cache.forEach(d=>{let m=d.mood||"";if(m.includes("Sedih"))moods.Sedih++;else if(m.includes("Cemas"))moods.Cemas++;else if(m.includes("Lega"))moods.Lega++;else moods.Bersyukur++;});let max=Math.max(...Object.values(moods),1);$("moodBar").innerHTML=Object.entries(moods).map(([k,v])=>`<div class="flex-1 flex flex-col items-center gap-1"><div class="w-full bg-emerald-500/60 rounded-t" style="height:${(v/max*100)||5}%"></div><span class="text-[8px] text-[#7a9a8a]">${k[0]}</span></div>`).join("");let savedHtml=cache.filter(d=>savedIds.includes(d.id)).map(d=>`<div class="bg-[#0d1411] border border-[#1f332b] rounded-xl p-3"><b class="text-xs">${esc(d.title)}</b><p class="text-[11px] text-[#7a9a8a] mt-1 line-clamp-2">${esc(d.text)}</p></div>`).join("");$("savedList").innerHTML=savedHtml||'<p class="text-xs text-[#7a9a8a]">Belum ada yang disimpan</p>';}
+window.hug=async id=>{if(!currentUser)return toast("Login dulu");let r=doc(db,"cerita_publik",id);let snap=await getDoc(r);if(!snap.exists()){let r2=doc(db,"cerita_privat_"+currentUser.uid,id);snap=await getDoc(r2);r=r2;if(!snap.exists())return}let uid=currentUser.uid;let hg=snap.data().hugs?.includes(uid);try{if(hg)await updateDoc(r,{hugs:arrayRemove(uid),hugsCount:increment(-1)});else await updateDoc(r,{hugs:arrayUnion(uid),hugsCount:increment(1)});}catch(e){toast(e.message)}};
+window.savePost=id=>{if(savedIds.includes(id))savedIds=savedIds.filter(x=>x!=id);else savedIds.push(id);localStorage.setItem('saved',JSON.stringify(savedIds));render();toast(savedIds.includes(id)?"Disimpan 🔖":"Dihapus")};
+window.sharePost=()=>{navigator.clipboard.writeText(location.href);toast("Link disalin 🔗")}
+window.delPost=async id=>{if(!confirm("Hapus?"))return;try{await deleteDoc(doc(db,"cerita_publik",id))}catch{await deleteDoc(doc(db,"cerita_privat_"+currentUser.uid,id))}toast("Dihapus")};
+window.openComments=async id=>{activeCommentId=id;$("commentModal").classList.remove("hidden");onSnapshot(collection(db,"cerita_publik",id,"comments"),s=>{let html="";s.forEach(d=>{let c=d.data();html+=`<div class="bg-[#0d1411] border border-[#1f332b] rounded-xl p-2"><b class="text-[10px]">${esc(c.author)}</b><p class="mt-1">${esc(c.text)}</p></div>`});$("commentList").innerHTML=html||'<p class="text-[#7a9a8a] text-center">Belum ada komentar</p>';});};
+$("commentSend").onclick=async()=>{let txt=$("commentInput").value.trim();if(!txt||!activeCommentId||!currentUser)return;try{await addDoc(collection(db,"cerita_publik",activeCommentId,"comments"),{text:txt,author:currentUser.isAnonymous?"Tamu":(currentUser.email?.split("@")[0]||"Anonim"),uid:currentUser.uid,createdAt:serverTimestamp()});await updateDoc(doc(db,"cerita_publik",activeCommentId),{commentsCount:increment(1)});$("commentInput").value="";toast("Komentar terkirim 💬")}catch(e){toast(e.message)}};
+document.querySelectorAll(".fc").forEach(b=>{b.onclick=()=>{document.querySelectorAll(".fc").forEach(x=>{x.className="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px] whitespace-nowrap"});b.className="fc active px-3 py-1.5 rounded-full bg-emerald-500 text-black text-[10px] font-bold whitespace-nowrap";render();}});
+$("sr").oninput=render;
+document.querySelectorAll(".nv").forEach(btn=>{btn.onclick=()=>{let v=btn.dataset.v;document.querySelectorAll(".nv").forEach(x=>x.className="nv flex-1 p-3 text-[10px]");btn.className="nv flex-1 p-3 text-[10px] bg-emerald-500 text-black font-bold";$("vb").classList.toggle("hidden",v!="b");$("vt").classList.toggle("hidden",v!="t");$("vc").classList.toggle("hidden",v!="c");if(v=="b"){document.querySelector('[data-t="Semua"]').click()}}});
 </script>
 </body>
 </html>
