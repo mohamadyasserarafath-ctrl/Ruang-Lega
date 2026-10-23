@@ -13,4 +13,89 @@
   <div id="authScreen" class="flex-1 flex flex-col justify-center p-8">
     <div class="text-center mb-8"><div class="text-5xl mb-4">🌿</div><h1 class="text-3xl font-bold text-[#2D4A3E]">Ruang Lega</h1><p class="text-gray-500 mt-2 text-sm">Cerita aman, tanpa nama. Peluk virtual 💜</p></div>
     <input id="email" type="email" placeholder="Email kamu" class="w-full p-4 rounded-2xl border border-[#F0E8DE] mb-3 outline-none">
-    <input id="password" type="password" placeholder="Password min 6 huruf" class="w-full p-4 rounded-2xl border border-[#F0E8
+    <input id="password" type="password" placeholder="Password min 6 huruf" class="w-full p-4 rounded-2xl border border-[#F0E8DE] mb-4 outline-none">
+    <button id="btnLogin" class="w-full bg-[#2D4A3E] text-white p-4 rounded-2xl font-semibold">Masuk / Daftar</button>
+    <p id="authMsg" class="text-sm text-center mt-3 text-red-500"></p>
+  </div>
+  <div id="mainScreen" class="hidden flex-1 flex-col">
+    <header class="p-4 flex justify-between items-center border-b sticky top-0 bg-white/90 backdrop-blur z-10">
+      <div><h2 class="font-bold text-[#2D4A3E]">🌿 Ruang Lega <span id="statusDot" class="text-[10px] px-2 py-0.5 rounded-full bg-green-100 text-green-700">🟢 Nyambung</span></h2><p id="userEmail" class="text-[11px] text-gray-400"></p></div>
+      <button id="btnLogout" class="text-xs bg-gray-100 px-4 py-2 rounded-full">Keluar</button>
+    </header>
+    <div id="filterBar" class="p-3 border-b bg-[#FFFCF8]">
+      <input id="searchInput" placeholder="Cari cerita... #Burnout" class="w-full p-3 rounded-full bg-white border text-sm outline-none mb-2">
+      <div class="flex gap-2 overflow-x-auto hide-scroll pb-1">
+        <button data-tag="Semua" class="filterChip active px-3 py-1.5 rounded-full bg-[#2D4A3E] text-white text-xs">Semua</button>
+        <button data-tag="CemasKuliah" class="filterChip px-3 py-1.5 rounded-full bg-[#FFF8F0] text-xs">#CemasKuliah</button>
+        <button data-tag="Burnout" class="filterChip px-3 py-1.5 rounded-full bg-[#FFF8F0] text-xs">#Burnout</button>
+      </div>
+    </div>
+    <div class="flex-1 overflow-y-auto">
+      <div id="view-beranda" class="p-4 pb-24"><div id="publicList" class="space-y-3"></div></div>
+      <div id="view-tulis" class="hidden p-4 pb-24">
+        <h3 class="font-bold text-[#2D4A3E] mb-1">Tulis ceritamu</h3>
+        <div class="bg-[#FFF8F0] rounded-[20px] p-4 border">
+          <textarea id="curhatText" placeholder="Tulis apa yang kamu rasakan hari ini..." class="w-full bg-white p-4 rounded-2xl border h-36 outline-none resize-none text-sm"></textarea>
+          <div class="grid grid-cols-2 gap-2 mt-3">
+            <select id="mood" class="p-3 rounded-full bg-white border text-sm"><option>😔 Sedih</option><option>😰 Cemas</option><option>😡 Marah</option><option>😊 Lega</option></select>
+            <select id="tag" class="p-3 rounded-full bg-white border text-sm"><option value="CemasKuliah">#CemasKuliah</option><option value="Burnout">#Burnout</option><option value="QuarterLife">#QuarterLife</option></select>
+          </div>
+          <div class="mt-3 p-3 rounded-2xl bg-white border flex justify-between items-center"><span class="text-sm font-semibold">🌍 Publikasikan ke Beranda</span><input id="isPublic" type="checkbox" checked class="w-5 h-5 accent-[#2D4A3E]"></div>
+          <button id="btnKirim" class="mt-4 w-full bg-[#2D4A3E] text-white p-4 rounded-2xl font-semibold">✨ Kirim Cerita</button>
+        </div>
+      </div>
+      <div id="view-ceritaku" class="hidden p-4 pb-24"><h3 class="font-bold mb-3">Cerita kamu (Privat)</h3><div id="listCurhat" class="space-y-3"></div></div>
+    </div>
+    <div class="sticky bottom-0 bg-white border-t px-2 py-2.5 flex gap-2">
+      <button data-view="beranda" class="navBtn flex-1 py-2.5 rounded-2xl flex flex-col items-center bg-[#2D4A3E] text-white"><span>🏠</span><span class="text-[10px]">Beranda</span></button>
+      <button data-view="tulis" class="navBtn flex-1 py-2.5 rounded-2xl flex flex-col items-center bg-[#FFF8F0]"><span>✍️</span><span class="text-[10px]">Tulis</span></button>
+      <button data-view="ceritaku" class="navBtn flex-1 py-2.5 rounded-2xl flex flex-col items-center bg-[#FFF8F0]"><span>📖</span><span class="text-[10px]">CeritaKu</span></button>
+    </div>
+    <div id="toast" class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 bg-[#2D4A3E] text-white px-4 py-2.5 rounded-2xl text-sm z-50"></div>
+  </div>
+</div>
+<div id="commentModal" class="fixed inset-0 bg-black/40 hidden z-50 flex items-end justify-center">
+  <div class="bg-white w-full max-w-md rounded-t-[24px] max-h-[75vh] flex flex-col">
+    <div class="p-4 border-b flex justify-between items-center"><h3 class="font-bold">💬 Komentar Anonim</h3><button id="closeComment" class="w-8 h-8 bg-gray-100 rounded-full">✕</button></div>
+    <div id="commentList" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
+    <div class="p-3 border-t flex gap-2"><input id="commentInput" placeholder="Tulis komentar anonim..." class="flex-1 p-3 rounded-full bg-[#FFF8F0] border text-sm"><button id="sendComment" class="bg-[#2D4A3E] text-white px-5 rounded-full text-sm">Kirim</button></div>
+  </div>
+</div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, addDoc, query, where, orderBy, onSnapshot, serverTimestamp, doc, updateDoc, increment, arrayUnion, arrayRemove, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyDCMGFYKAFXcAWdVAgd35P7BCH8cXuxgmU",
+  authDomain: "ruang-lega.firebaseapp.com",
+  projectId: "ruang-lega",
+  storageBucket: "ruang-lega.firebasestorage.app",
+  messagingSenderId: "854510951413",
+  appId: "1:854510951413:web:0582a9f3852ed4775bdebc"
+};
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const $ = id => document.getElementById(id);
+let currentTag="Semua",currentSearch="",publicCache=[],activePostId=null,currentUser=null;
+function toast(m){const t=$("toast");t.textContent=m;t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),2500)}
+function fmtDate(ts){if(!ts?.toDate)return"Baru saja";return ts.toDate().toLocaleString("id-ID",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})}
+function anonName(uid){let s=0;for(let c of uid)s+=c.charCodeAt(0);return"Anonim "+(s%99+1)}
+function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+$("btnLogin").onclick=async()=>{if(!$("email").value||$("password").value.length<6){$("authMsg").textContent="Isi email & password min 6";return}try{await signInWithEmailAndPassword(auth,$("email").value,$("password").value)}catch(e){try{await createUserWithEmailAndPassword(auth,$("email").value,$("password").value)}catch(err){$("authMsg").textContent=err.message}}};
+$("btnLogout").onclick=()=>signOut(auth);
+$("btnKirim").onclick=async()=>{const text=$("curhatText").value.trim();if(!text)return;$("btnKirim").textContent="Mengirim...";try{await addDoc(collection(db,"curhat"),{uid:auth.currentUser.uid,text,mood:$("mood").value,tag:$("tag").value,createdAt:serverTimestamp()});if($("isPublic").checked){await addDoc(collection(db,"cerita_publik"),{text,mood:$("mood").value,tag:$("tag").value,peluk:0,likes:[],likesCount:0,commentsCount:0,sharesCount:0,createdAt:serverTimestamp(),author:anonName(auth.currentUser.uid),uid:auth.currentUser.uid})}$("curhatText").value="";toast("✨ Lega! Terkirim");document.querySelector('[data-view="beranda"]').click()}catch(err){alert(err.message)}$("btnKirim").textContent="✨ Kirim Cerita"};
+function renderPublic(){const c=$("publicList");let f=publicCache;if(currentTag!=="Semua")f=f.filter(d=>d.tag===currentTag);if(currentSearch)f=f.filter(d=>(d.text+d.tag).toLowerCase().includes(currentSearch.toLowerCase()));if(f.length===0){c.innerHTML='<div class="text-center py-12 text-gray-400 text-sm">Belum ada cerita</div>';return}c.innerHTML=f.map(d=>{const liked=d.likes?.includes(currentUser?.uid);return `<div class="bg-white border rounded-[16px] p-4"><div class="flex justify-between mb-2"><span class="px-2.5 py-1 rounded-full bg-[#FFF8F0] text-[11px]">#${d.tag}</span><span class="text-[11px] text-gray-400">${fmtDate(d.createdAt)}</span></div><p class="text-[13px] whitespace-pre-wrap">${esc(d.text)}</p><div class="mt-4 pt-3 border-t flex justify-between"><button onclick="window.likePost('${d.id}')" class="text-[12px] ${liked?'text-red-500 font-bold':'text-gray-500'}">${liked?'❤️':'🤍'} ${d.likesCount||d.peluk||0} Like</button><button onclick="window.openComment('${d.id}')" class="text-[12px] text-gray-500">💬 ${d.commentsCount||0} Komen</button><button onclick="window.sharePost('${d.id}')" class="text-[12px] text-gray-500">🔗 Share</button><button onclick="window.repostPost('${d.id}')" class="text-[12px] text-gray-500">🔁 ${d.sharesCount||0} Bagikan</button></div></div>`}).join("")}
+window.likePost=async(id)=>{const ref=doc(db,"cerita_publik",id);const s=await getDoc(ref);const liked=s.data().likes?.includes(currentUser.uid);if(liked){await updateDoc(ref,{likes:arrayRemove(currentUser.uid),likesCount:increment(-1),peluk:increment(-1)})}else{await updateDoc(ref,{likes:arrayUnion(currentUser.uid),likesCount:increment(1),peluk:increment(1)})}};
+window.openComment=(id)=>{activePostId=id;$("commentModal").classList.remove("hidden");const col=collection(db,'cerita_publik',id,'comments');onSnapshot(query(col,orderBy('createdAt','asc')),snap=>{const l=$("commentList");if(snap.empty){l.innerHTML='<p class="text-center text-xs text-gray-400 py-8">Belum ada komentar</p>';return}l.innerHTML=snap.docs.map(d=>`<div class="bg-[#FFF8F0] p-3 rounded-xl"><p class="text-[11px] text-gray-400">Anonim</p><p class="text-[13px]">${esc(d.data().text)}</p></div>`).join('')})};
+window.sharePost=async(id)=>{const url='https://mohamadyasserarafath-ctrl.github.io/Ruang-Lega/';await navigator.clipboard.writeText(url);toast("Link disalin ✨");await updateDoc(doc(db,"cerita_publik",id),{sharesCount:increment(1)})};
+window.repostPost=async(id)=>{if(!confirm('Bagikan ulang?'))return;const o=publicCache.find(p=>p.id===id);await addDoc(collection(db,"cerita_publik"),{text:o.text,mood:o.mood,tag:o.tag,peluk:0,likes:[],likesCount:0,commentsCount:0,sharesCount:0,createdAt:serverTimestamp(),author:anonName(currentUser.uid),uid:currentUser.uid,repostedFrom:id});await updateDoc(doc(db,"cerita_publik",id),{sharesCount:increment(1)});toast("🔁 Berhasil dibagikan!")};
+$("closeComment").onclick=()=>$("commentModal").classList.add("hidden");
+$("sendComment").onclick=async()=>{const t=$("commentInput").value.trim();if(!t)return;await addDoc(collection(db,'cerita_publik',activePostId,'comments'),{text:t,uid:currentUser.uid,createdAt:serverTimestamp()});await updateDoc(doc(db,'cerita_publik',activePostId),{commentsCount:increment(1)});$("commentInput").value=''};
+document.querySelectorAll(".filterChip").forEach(b=>{b.onclick=()=>{document.querySelectorAll(".filterChip").forEach(x=>x.className="filterChip px-3 py-1.5 rounded-full bg-[#FFF8F0] text-xs");b.className="filterChip active px-3 py-1.5 rounded-full bg-[#2D4A3E] text-white text-xs";currentTag=b.dataset.tag;renderPublic()}});
+$("searchInput").oninput=e=>{currentSearch=e.target.value;renderPublic()};
+document.querySelectorAll(".navBtn").forEach(btn=>{btn.onclick=()=>{const v=btn.dataset.view;document.querySelectorAll(".navBtn").forEach(b=>b.className="navBtn flex-1 py-2.5 rounded-2xl flex flex-col items-center bg-[#FFF8F0]");btn.className="navBtn flex-1 py-2.5 rounded-2xl flex flex-col items-center bg-[#2D4A3E] text-white";$("view-beranda").classList.toggle("hidden",v!=="beranda");$("view-tulis").classList.toggle("hidden",v!=="tulis");$("view-ceritaku").classList.toggle("hidden",v!=="ceritaku")}});
+onAuthStateChanged(auth,user=>{if(user){currentUser=user;$("authScreen").classList.add("hidden");$("mainScreen").classList.remove("hidden");$("mainScreen").classList.add("flex");$("userEmail").textContent=user.email;onSnapshot(query(collection(db,"curhat"),where("uid","==",user.uid),orderBy("createdAt","desc")),snap=>{const el=$("listCurhat");el.innerHTML="";snap.forEach(d=>{el.innerHTML+=`<div class="bg-white border rounded-2xl p-4"><p class="text-sm">${esc(d.data().text)}</p></div>`})});onSnapshot(query(collection(db,"cerita_publik"),orderBy("createdAt","desc")),snap=>{publicCache=[];snap.forEach(d=>publicCache.push({id:d.id,...d.data()}));renderPublic()})}else{$("mainScreen").classList.add("hidden");$("authScreen").classList.remove("hidden")}});
+</script>
+</body>
+</html>
