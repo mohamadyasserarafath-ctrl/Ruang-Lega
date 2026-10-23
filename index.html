@@ -3,203 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ruang Lega V6 - Final</title>
+<title>Ruang Lega V6.1 - Anti Mentok</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&family=Merriweather&family=Caveat&display=swap" rel="stylesheet">
 <style>
-.fj{font-family:'Plus Jakarta Sans'}
-.fs{font-family:'Merriweather'}
-.fh{font-family:'Caveat';font-size:1.3em}
-.fm{font-family:monospace}
+.fj{font-family:sans-serif}
+.fs{font-family:serif}
+.fh{font-family:cursive}
 </style>
 </head>
 <body class="bg-[#0a0f0e] text-white">
 <div class="max-w-md mx-auto min-h-screen bg-[#121916] flex flex-col relative">
-
-<!-- LOGIN -->
-<div id="a" class="flex-1 flex flex-col justify-center p-6">
-<h1 class="text-3xl font-bold text-center">🌿 Ruang Lega V6</h1>
-<p class="text-[11px] text-emerald-400 text-center mt-1">Darurat • Edit • Pelukan • Mood Tracker • Aman</p>
-<input id="e" placeholder="Email" class="w-full mt-6 p-3 rounded-xl bg-[#1a2520] border border-[#1f332b]">
-<input id="p" type="password" placeholder="Password min 6" class="w-full mt-2 p-3 rounded-xl bg-[#1a2520] border border-[#1f332b]">
-<button id="bL" class="w-full mt-3 bg-emerald-500 text-black p-3 rounded-xl font-bold">Masuk / Daftar</button>
-<p id="m" class="text-xs text-red-400 text-center mt-2"></p>
-<p class="text-[10px] text-[#5a7a6a] text-center mt-6">Butuh bantuan segera? Tekan tombol 🆘 di pojok</p>
-</div>
-
-<!-- MAIN -->
-<div id="ms" class="hidden flex-1 flex-col">
 <header class="p-3 flex justify-between items-center border-b border-[#1f332b] sticky top-0 bg-[#121916] z-20">
 <div class="flex gap-2 items-center">
-<div id="ha" class="w-8 h-8 rounded-full bg-[#1a2520] flex items-center justify-center">🌿</div>
+<div class="w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-black font-bold">🌿</div>
 <div>
-<p class="text-sm font-bold">Ruang Lega</p>
-<p id="hn" class="text-[10px] text-[#7a9a8a]">Anonim</p>
+<p class="text-sm font-bold">Ruang Lega V6.1</p>
+<p class="text-[10px] text-emerald-400">Mode Demo - Langsung Jalan</p>
 </div>
 </div>
-<div class="flex gap-2">
-<button id="sosBtn" class="w-8 h-8 rounded-full bg-red-500/20 border border-red-500 text-red-400 text-sm font-bold">🆘</button>
-<button id="bO" class="text-xs bg-[#1a2520] px-3 py-1 rounded-full">Keluar</button>
-</div>
+<button id="sosBtn" class="w-8 h-8 rounded-full bg-red-500/20 border border-red-500 text-red-400">🆘</button>
 </header>
 
-<div id="fb" class="p-3 border-b border-[#1f332b] bg-[#0f1714]">
-<div id="dailyPrompt" class="bg-[#1a2520] border border-emerald-500/30 rounded-xl p-3 mb-3">
+<div class="p-3 bg-[#0f1714] border-b border-[#1f332b]">
+<div class="bg-[#1a2520] border border-emerald-500/30 rounded-xl p-3">
 <p class="text-[10px] text-emerald-400 font-bold">💡 PROMPT HARI INI</p>
-<p id="promptText" class="text-xs mt-1">Apa satu hal kecil yang membuatmu bertahan hari ini?</p>
-<button onclick="usePrompt()" class="text-[10px] bg-emerald-500 text-black px-2 py-1 rounded-full mt-2">Pakai prompt ini ✍️</button>
+<p id="promptText" class="text-xs mt-1">Apa satu hal kecil yang bikin kamu bertahan hari ini?</p>
+<button onclick="usePrompt()" class="text-[10px] bg-emerald-500 text-black px-2 py-1 rounded-full mt-2">Pakai prompt ✍️</button>
 </div>
-<input id="sr" placeholder="🔍 Cari judul #hashtag" class="w-full p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs">
-<div class="flex gap-1.5 mt-2 overflow-x-auto pb-1">
+<input id="sr" placeholder="🔍 Cari cerita..." class="w-full mt-2 p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs">
+<div class="flex gap-1.5 mt-2 overflow-x-auto">
 <button data-t="Semua" class="fc active px-3 py-1.5 rounded-full bg-emerald-500 text-black text-[10px] font-bold">Semua</button>
 <button data-t="Burnout" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]">#Burnout</button>
-<button data-t="CemasKuliah" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]">#Cemas</button>
-<button data-t="AnakPertama" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]">#AnakPertama</button>
+<button data-t="Cemas" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]">#Cemas</button>
 <button data-t="Saved" class="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]">🔖 Disimpan</button>
 </div>
 </div>
 
 <div class="flex-1 overflow-y-auto p-3 pb-28">
-
-<!-- BERANDA -->
 <div id="vb">
-<div id="moodStats" class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-3 mb-3">
-<div class="flex justify-between items-center">
-<b class="text-xs">📊 Mood Minggu Ini</b>
-<span id="totalPost" class="text-[10px] bg-[#0d1411] px-2 py-1 rounded-full">0 cerita</span>
-</div>
+<div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-3 mb-3">
+<div class="flex justify-between"><b class="text-xs">📊 Mood</b><span id="totalPost" class="text-[10px] bg-[#0d1411] px-2 py-1 rounded-full">0 cerita</span></div>
 <div id="moodBar" class="flex gap-1 mt-2 h-8 items-end"></div>
-<div id="moodLabel" class="flex gap-1 mt-1 text-[9px] text-[#7a9a8a]"></div>
 </div>
 <div id="pl" class="space-y-3"></div>
 </div>
 
-<!-- TULIS -->
 <div id="vt" class="hidden">
 <div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-4">
-<div class="flex justify-between items-center mb-2">
 <b class="text-sm">✍️ Tulis Curhat</b>
-<span id="draftInfo" class="text-[9px] text-[#7a9a8a]"></span>
-</div>
-<input id="jd" placeholder="Judul cerita (contoh: Hari yang berat)" class="w-full p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm font-bold">
-<div class="flex gap-1 my-3">
-<select id="fs" class="flex-1 p-2 rounded-full bg-[#0d1411] border border-[#1f332b] text-[10px]">
-<option value="fj">Jakarta Sans</option>
-<option value="fs">Serif Tenang</option>
-<option value="fh">Tulisan Tangan</option>
-<option value="fm">Mono</option>
-</select>
-<select id="as" class="flex-1 p-2 rounded-full bg-[#0d1411] border border-[#1f332b] text-[10px]">
-<option value="text-left">Rata Kiri</option>
-<option value="text-center">Tengah</option>
-</select>
-<button id="bB" class="w-8 h-8 border border-[#2a4a3a] rounded-full text-xs font-bold">B</button>
-<button id="bI" class="w-8 h-8 border border-[#2a4a3a] rounded-full text-xs italic">I</button>
-<button id="bE" class="w-8 h-8 border border-[#2a4a3a] rounded-full text-xs">😊</button>
-</div>
-<textarea id="ct" placeholder="Tulis seleganya... gak ada yang nge-judge di sini" class="w-full bg-[#0d1411] p-3 rounded-xl border border-[#1f332b] h-32 text-sm fj"></textarea>
-<div id="eg" class="hidden grid grid-cols-8 gap-1 mt-2 p-2 bg-[#0d1411] rounded-xl"></div>
-<div class="grid grid-cols-2 gap-2 mt-3">
+<input id="jd" placeholder="Judul" class="w-full mt-3 p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm font-bold">
+<textarea id="ct" placeholder="Tulis seleganya..." class="w-full mt-2 bg-[#0d1411] p-3 rounded-xl border border-[#1f332b] h-32 text-sm"></textarea>
+<div class="grid grid-cols-2 gap-2 mt-2">
 <select id="mo" class="p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs">
-<option value="😔 Sedih">😔 Sedih</option>
-<option value="😰 Cemas">😰 Cemas</option>
-<option value="😤 Marah">😤 Marah</option>
-<option value="😊 Lega">😊 Lega</option>
-<option value="🥰 Bersyukur">🥰 Bersyukur</option>
-<option value="😴 Lelah">😴 Lelah</option>
+<option>😔 Sedih</option><option>😰 Cemas</option><option>😊 Lega</option><option>🥰 Bersyukur</option>
 </select>
 <select id="tg" class="p-2.5 rounded-full bg-[#0d1411] border border-[#1f332b] text-xs">
-<option>Burnout</option>
-<option>CemasKuliah</option>
-<option>AnakPertama</option>
-<option>Relationship</option>
-<option>Healing</option>
+<option>Burnout</option><option>CemasKuliah</option><option>AnakPertama</option><option>Healing</option>
 </select>
 </div>
-<input id="ht" placeholder="#hashtag pisah koma (contoh: healing, capek)" class="w-full mt-3 p-2.5 rounded-xl bg-[#0d1411] border border-[#1f332b] text-xs">
-<label class="flex justify-between items-center mt-3 bg-[#0d1411] p-3 rounded-xl text-xs border border-[#1f332b]">
-<div>
-<p class="font-bold">🌍 Posting Publik Anonim</p>
-<p class="text-[10px] text-[#7a9a8a]">Orang lain bisa kasih pelukan</p>
+<input id="pn" placeholder="Nama Anonim" value="Anonim" class="w-full mt-2 p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm">
+<button id="bK" class="w-full bg-emerald-500 text-black p-3 rounded-xl mt-3 font-bold">✨ Kirim Cerita</button>
 </div>
-<input id="ip" type="checkbox" checked class="w-5 h-5">
-</label>
-<button id="bK" class="w-full bg-emerald-500 text-black p-3 rounded-xl mt-4 font-bold">✨ Kirim Cerita</button>
-<button id="bClear" class="w-full bg-[#0d1411] border border-[#1f332b] p-2 rounded-xl mt-2 text-xs">Hapus Draft</button>
 </div>
 </div>
 
-<!-- PRIVAT -->
-<div id="vc" class="hidden">
-<div class="bg-[#1a2520] border border-[#1f332b] rounded-xl p-3 mb-3">
-<b class="text-sm">🔒 Cerita Privat (Hanya Kamu)</b>
-<p class="text-[10px] text-[#7a9a8a] mt-1">Aman, gak ada yang bisa lihat. FIX sudah jalan!</p>
-<div class="flex justify-between mt-2">
-<span class="text-[10px]">Total:</span>
-<span id="pc" class="text-[10px] bg-emerald-500 text-black px-2 py-0.5 rounded-full">0</span>
-</div>
-</div>
-<div id="lc" class="space-y-3"></div>
+<div class="fixed bottom-0 w-full max-w-md bg-[#121916] border-t border-[#1f332b] flex z-20">
+<button data-v="b" class="nv flex-1 p-3 text-[10px] bg-emerald-500 text-black font-bold">🏠<br>Beranda</button>
+<button data-v="t" class="nv flex-1 p-3 text-[10px]">✍️<br>Tulis</button>
+<button data-v="c" class="nv flex-1 p-3 text-[10px]">🔖<br>Simpan</button>
 </div>
 
-<!-- PROFIL -->
-<div id="vp" class="hidden">
-<div class="bg-[#1a2520] border border-[#1f<!-- MODAL SOS / DARURAT -->
+<div id="to" class="hidden fixed bottom-24 left-1/2 -translate-x-1/2 bg-emerald-500 text-black px-4 py-2 rounded-full text-xs font-bold z-50"></div>
+</div>
+
+<!-- SOS MODAL -->
 <div id="sosModal" class="fixed inset-0 bg-black/80 hidden z-[60] flex items-center justify-center p-4">
-<div class="bg-[#121916] w-full max-w-sm rounded-2xl border border-red-500/30 p-5">
-<div class="text-center">
+<div class="bg-[#121916] w-full max-w-sm rounded-2xl border border-red-500/30 p-5 text-center">
 <div class="w-14 h-14 mx-auto bg-red-500/20 rounded-full flex items-center justify-center text-2xl">🆘</div>
 <h2 class="font-bold mt-3">Kamu Gak Sendiri</h2>
-<p class="text-xs text-[#7a9a8a] mt-1">Kalau kamu merasa gak aman, segera hubungi bantuan profesional:</p>
-</div>
-<div class="space-y-2 mt-4">
-<a href="tel:119" class="block w-full bg-red-500 text-white p-3 rounded-xl text-center font-bold text-sm">📞 Call 119 - Kemenkes Jiwa</a>
-<a href="tel:1500454" class="block w-full bg-[#1a2520] border border-[#2a4a3a] p-3 rounded-xl text-center text-sm">💬 LISA - Hotline Kesehatan Jiwa</a>
-<a href="https://wa.me/628111385353" target="_blank" class="block w-full bg-[#1a2520] border border-[#2a4a3a] p-3 rounded-xl text-center text-sm">WhatsApp Teman Curhat</a>
-<div class="bg-[#0d1411] p-3 rounded-xl text-[11px] leading-relaxed">
-<b class="text-emerald-400">Teknik Napas 4-7-8:</b><br>
-Tarik napas 4 detik, tahan 7 detik, buang 8 detik. Ulangi 3x. Kamu sudah hebat bisa bertahan sejauh ini 🌿
-</div>
-</div>
-<button id="sosClose" class="w-full mt-4 bg-[#1a2520] p-3 rounded-xl text-xs">Tutup, aku lebih baik sekarang 🤗</button>
-</div>
-</div>
-
-<!-- MODAL EDIT -->
-<div id="editModal" class="fixed inset-0 bg-black/70 hidden z-50 flex items-end justify-center">
-<div class="bg-[#121916] w-full max-w-md rounded-t-2xl border border-[#1f332b] p-4 max-h-[80vh] overflow-y-auto">
-<div class="flex justify-between items-center mb-3">
-<b class="text-sm">✏️ Edit Cerita</b>
-<button id="editClose">✕</button>
-</div>
-<input id="editTitle" class="w-full p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] text-sm font-bold mb-2">
-<textarea id="editText" class="w-full p-3 rounded-xl bg-[#0d1411] border border-[#1f332b] h-32 text-sm"></textarea>
-<div class="flex gap-2 mt-3">
-<button id="editSave" class="flex-1 bg-emerald-500 text-black p-3 rounded-xl font-bold text-sm">Simpan Perubahan</button>
-<button id="editCancel" class="flex-1 bg-[#1a2520] border border-[#1f332b] p-3 rounded-xl text-sm">Batal</button>
-</div>
-</div>
-</div>
-
-<!-- MODAL KOMEN -->
-<div id="cm" class="fixed inset-0 bg-black/60 hidden z-50 flex items-end justify-center">
-<div class="bg-[#121916] w-full max-w-md rounded-t-2xl max-h-[75vh] flex flex-col border border-[#1f332b]">
-<div class="p-4 border-b border-[#1f332b] flex justify-between items-center">
-<b class="text-sm">💬 Komentar Anonim</b>
-<button id="cx" class="w-8 h-8 bg-[#1a2520] rounded-full">✕</button>
-</div>
-<div id="cl" class="flex-1 overflow-y-auto p-4 space-y-3"></div>
-<div class="p-3 border-t border-[#1f332b] flex gap-2 bg-[#0f1714]">
-<input id="ci" placeholder="Kasih dukungan anonim..." class="flex-1 bg-[#0d1411] border border-[#1f332b] p-3 rounded-full text-xs">
-<button id="cs" class="bg-emerald-500 text-black px-6 rounded-full text-xs font-bold">Kirim</button>
-</div>
+<p class="text-xs text-[#7a9a8a] mt-1">Hubungi bantuan profesional:</p>
+<a href="tel:119" class="block w-full mt-4 bg-red-500 text-white p-3 rounded-xl font-bold text-sm">📞 Call 119</a>
+<button id="sosClose" class="w-full mt-3 bg-[#1a2520] p-3 rounded-xl text-xs">Tutup 🤗</button>
 </div>
 </div>
 
 <script type="module">
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {getAuth,signInWithEmailAndPassword,createUserWithEmailAndPassword,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-import {getFirestore,collection,addDoc,query,where,onSnapshot,serverTimestamp,doc,updateDoc,increment,arrayUnion,arrayRemove,getDoc,setDoc,deleteDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {getFirestore,collection,addDoc,query,onSnapshot,serverTimestamp,doc,updateDoc,increment,arrayUnion,arrayRemove,getDoc} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const cfg={
 apiKey:"AIzaSyDCMGFYKAFXcAWdVAgd35P7BCH8cXuxgmU",
@@ -210,301 +100,72 @@ messagingSenderId:"854510951413",
 appId:"1:854510951413:web:0582a9f3852ed4775bdebc"
 };
 const app=initializeApp(cfg);
-const auth=getAuth(app);
 const db=getFirestore(app);
 const $=id=>document.getElementById(id);
+let cache=[],savedIds=JSON.parse(localStorage.getItem('saved')||'[]');
+const prompts=["Apa satu hal kecil yang bikin kamu bertahan hari ini?","Kalau cemasmu punya warna, apa warnanya?","Apa yang ingin kamu bilang ke diri kamu 5 tahun lalu?","Tulis 3 hal yang kamu syukuri hari ini"];
+$("promptText").textContent=prompts[Math.floor(Math.random()*prompts.length)];
+window.usePrompt=()=>{$("ct").value=$("promptText").textContent+"\n\n"; document.querySelector('[data-v="t"]').click()};
 
-let cur=null,cache=[],pcache=[],act=null,cf="fj",ca="text-left",bB=false,bI=false,sel="🌿",editId=null;
-let savedIds = JSON.parse(localStorage.getItem('saved')||'[]');
+function toast(m){let t=$("to");t.textContent=m;t.classList.remove("hidden");setTimeout(()=>t.classList.add("hidden"),2000)}
+function esc(t){return (t||'').replace(/</g,'&lt;')}
+function fmt(ts){return ts?.toDate?ts.toDate().toLocaleDateString("id-ID"):"Baru"}
 
-const avs=["🌿","😊","🥰","😔","😰","😎","🌙","🔥","💜","🍀","🐱","🐶","🦊","🌸","🍃","🌊"];
-const emos=["😊","😂","😭","😔","😰","😡","🥰","🤗","😴","🙏","💜","🔥","✨","💪","🌿","🍀","🌸","🌙","☀️","🌧️"];
-const prompts=[
-"Apa satu hal kecil yang membuatmu bertahan hari ini?",
-"Kalau rasa cemasmu punya warna, warnanya apa?",
-"Apa yang ingin kamu katakan ke diri kamu yang 5 tahun lalu?",
-"Tulis 3 hal yang masih kamu syukuri hari ini, sekecil apapun",
-"Kalau hari ini berat, bagian mana yang paling berat?"
-];
-$("promptText").textContent = prompts[Math.floor(Math.random()*prompts.length)];
-window.usePrompt=()=>{ 
-$("ct").value = $("promptText").textContent + "\n\n"; 
-document.querySelector('[data-v="t"]').click(); 
-$("ct").focus();
-};
-
-function toast(m){
-let t=$("to");
-t.textContent=m;
-t.classList.remove("hidden");
-setTimeout(()=>t.classList.add("hidden"),2500)
-}
-function esc(t){return (t||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')}
-function fmt(ts){return ts?.toDate?ts.toDate().toLocaleDateString("id-ID",{day:'numeric',month:'short'})||"Baru":"Baru"}
-
-// SOS
 $("sosBtn").onclick=()=>$("sosModal").classList.remove("hidden");
 $("sosClose").onclick=()=>$("sosModal").classList.add("hidden");
-$("sosModal").onclick=(e)=>{if(e.target.id=="sosModal")$("sosModal").classList.add("hidden")}
 
-// LOGIN
-$("bL").onclick=async()=>{
-let e=$("e").value,p=$("p").value;
-if(!e||p.length<6){$("m").textContent="Isi email & pass min 6";return}
-try{await signInWithEmailAndPassword(auth,e,p)}
-catch{try{await createUserWithEmailAndPassword(auth,e,p)}catch(err){$("m").textContent=err.message}}
-};
-$("bO").onclick=()=>signOut(auth);
-
-// AVATAR & EMOJI
-$("ag").innerHTML=avs.map(a=>`<button class="av w-10 h-10 rounded-full bg-[#0d1411] border border-[#1f332b] text-lg" data-a="${a}">${a}</button>`).join("");
-$("eg").innerHTML=emos.map(em=>`<button class="p-2 hover:bg-[#1a2520] rounded-lg" onclick="ins('${em}')">${em}</button>`).join("");
-window.ins=e=>{$("ct").value+=" "+e; $("eg").classList.add("hidden")};
-$("bE").onclick=()=>{$("eg").classList.toggle("hidden")};
-
-document.addEventListener("click",e=>{
-if(e.target.classList.contains("av")){
-document.querySelectorAll(".av").forEach(b=>b.classList.remove("border-emerald-500","border-2"));
-e.target.classList.add("border-emerald-500","border-2");
-sel=e.target.dataset.a;
-$("pa").textContent=sel;
-$("ha").textContent=sel
-}
-});
-
-// FONT CONTROLS
-$("fs").onchange=e=>{cf=e.target.value;up()};
-$("as").onchange=e=>{ca=e.target.value;up()};
-$("bB").onclick=()=>{bB=!bB;$("bB").classList.toggle("bg-emerald-500");$("bB").classList.toggle("text-black");up()};
-$("bI").onclick=()=>{bI=!bI;$("bI").classList.toggle("bg-emerald-500");$("bI").classList.toggle("text-black");up()};
-function up(){
-$("ct").className=`w-full bg-[#0d1411] p-3 rounded-xl border border-[#1f332b] h-32 text-sm ${cf} ${ca} ${bB?'font-bold':''} ${bI?'italic':''}`
-};
-
-// DRAFT AUTOSAVE
-$("jd").oninput=saveDraft;
-$("ct").oninput=saveDraft;
-$("ht").oninput=saveDraft;
-function saveDraft(){
-let d={t:$("jd").value,c:$("ct").value,h:$("ht").value};
-localStorage.setItem('draft',JSON.stringify(d));
-$("draftInfo").textContent="Draft tersimpan otomatis ✓";
-}
-function loadDraft(){
-let d=JSON.parse(localStorage.getItem('draft')||'{}');
-if(d.t||d.c){
-$("jd").value=d.t||''; $("ct").value=d.c||''; $("ht").value=d.h||'';
-$("draftInfo").textContent="Draft dipulihkan";
-}
-}
-$("bClear").onclick=()=>{localStorage.removeItem('draft'); $("jd").value='';$("ct").value='';$("ht").value=''; toast("Draft dihapus")}
-
-// KIRIM
 $("bK").onclick=async()=>{
 let t=$("jd").value.trim(),c=$("ct").value.trim();
-if(!t||!c){toast("Isi judul & cerita dulu ya");return}
-if(c.toLowerCase().includes("bunuh diri")||c.toLowerCase().includes("mau mati")){
-$("sosModal").classList.remove("hidden");
-toast("Kami peduli. Coba hubungi bantuan dulu ya 🤗");
-}
+if(!t||!c){toast("Isi judul & cerita");return}
 $("bK").textContent="Mengirim...";
 try{
-let h=$("ht").value.split(",").map(s=>s.trim()).filter(s=>s).map(s=>s.replace("#",""));
-let pay={uid:cur.uid,title:t,text:c,mood:$("mo").value,tag:$("tg").value,hashtags:h,font:cf,align:ca,bold:bB,italic:bI,createdAt:serverTimestamp()};
-await addDoc(collection(db,"curhat"),pay);
-if($("ip").checked){
-await addDoc(collection(db,"cerita_publik"),{uid:cur.uid,title:t,text:c,mood:$("mo").value,tag:$("tg").value,hashtags:h,font:cf,align:ca,bold:bB,italic:bI,hugs:[],hugsCount:0,commentsCount:0,sharesCount:0,reports:0,createdAt:serverTimestamp(),author:$("pn").value||"Anonim",avatar:sel})
-}
-localStorage.removeItem('draft');
-$("jd").value="";$("ct").value="";$("ht").value="";
-toast("Terkirim, kamu hebat! ✨");
-document.querySelector('[data-v="b"]').click()
-}catch(e){alert(e.message)}
+await addDoc(collection(db,"cerita_publik"),{
+title:t,text:c,mood:$("mo").value,tag:$("tg").value,author:$("pn").value||"Anonim",avatar:"🌿",
+hugs:[],hugsCount:0,commentsCount:0,createdAt:serverTimestamp()
+});
+$("jd").value="";$("ct").value="";toast("Terkirim ✨");document.querySelector('[data-v="b"]').click()
+}catch(e){toast(e.message)}
 $("bK").textContent="✨ Kirim Cerita"
 };
 
-// RENDER PUBLIK + MOOD TRACKER
 function rp(){
 let list=cache;
 let tag=document.querySelector(".fc.active")?.dataset.t||"Semua";
-if(tag=="Saved"){
-list=list.filter(d=>savedIds.includes(d.id));
-}else if(tag!="Semua"){
-list=list.filter(d=>d.tag==tag);
-}
+if(tag=="Saved")list=list.filter(d=>savedIds.includes(d.id));
+else if(tag!="Semua")list=list.filter(d=>d.tag==tag||d.mood?.includes(tag));
 let s=$("sr").value.toLowerCase();
-if(s)list=list.filter(d=>(d.title+" "+d.text+" "+(d.hashtags||[]).join(" ")).toLowerCase().includes(s));
-
-// MOOD TRACKER
-let moods = {Sedih:0,Cemas:0,Marah:0,Lega:0,Bersyukur:0,Lelah:0};
-cache.forEach(d=>{
-if(d.mood?.includes("Sedih")) moods.Sedih++;
-else if(d.mood?.includes("Cemas")) moods.Cemas++;
-else if(d.mood?.includes("Marah")) moods.Marah++;
-else if(d.mood?.includes("Lega")) moods.Lega++;
-else if(d.mood?.includes("Bersyukur")) moods.Bersyukur++;
-else moods.Lelah++;
-});
-let max = Math.max(...Object.values(moods),1);
-$("moodBar").innerHTML=Object.entries(moods).map(([k,v])=>`<div class="flex-1 bg-emerald-500/60 rounded-t" style="height:${(v/max*100)||5}%"></div>`).join("");
-$("moodLabel").innerHTML=Object.keys(moods).map(k=>`<span class="flex-1 text-center">${k.slice(0,4)}</span>`).join("");
+if(s)list=list.filter(d=>(d.title+" "+d.text).toLowerCase().includes(s));
 $("totalPost").textContent=cache.length+" cerita";
-
-if(!list.length){
-$("pl").innerHTML=`<div class="text-center py-10">
-<p class="text-2xl">🌿</p>
-<p class="text-xs text-[#7a9a8a] mt-2">${tag=="Saved"?"Belum ada yang disimpan":"Belum ada cerita di filter ini"}</p>
-</div>`;
-return
-}
-
+if(!list.length){$("pl").innerHTML='<p class="text-center text-xs text-[#7a9a8a] py-10">Belum ada cerita</p>';return}
 $("pl").innerHTML=list.map(d=>{
-let hugged=d.hugs?.includes(cur?.uid);
-let isMine=d.uid==cur?.uid;
 let saved=savedIds.includes(d.id);
 return `<div class="bg-[#1a2520] border border-[#1f332b] rounded-2xl p-4">
-<div class="flex justify-between items-start">
-<div class="flex items-center gap-2">
-<span class="text-lg">${d.avatar||"🌿"}</span>
-<div>
-<b class="text-xs">${esc(d.author||"Anonim")}</b>
-<p class="text-[10px] text-[#7a9a8a]">#${d.tag} • ${fmt(d.createdAt)} • ${d.mood||''}</p>
-</div>
-</div>
-<div class="flex gap-1">
-${isMine?`<button onclick="editPost('${d.id}')" class="text-[10px] bg-[#0d1411] border border-[#1f332b] px-2 py-1 rounded-full">✏️</button><button onclick="delPost('${d.id}')" class="text-[10px] bg-red-500/20 border border-red-500/30 px-2 py-1 rounded-full">🗑️</button>`:`<button onclick="reportPost('${d.id}')" class="text-[10px] bg-[#0d1411] px-2 py-1 rounded-full">🚩</button>`}
-</div>
-</div>
-<b class="text-[14px] block mt-3 leading-snug">${esc(d.title||"")}</b>
-<p class="text-[13px] mt-2 whitespace-pre-wrap leading-relaxed text-[#c5d5cc] ${d.font||"fj"} ${d.align||""} ${d.bold?"font-bold":""} ${d.italic?"italic":""}">${esc(d.text)}</p>
-${d.hashtags?.length?`<p class="text-[11px] text-emerald-400 mt-3">${d.hashtags.map(h=>"#"+esc(h)).join(" ")}</p>`:""}
-<div class="flex justify-between items-center mt-4 pt-3 border-t border-[#1f332b]/50">
-<button onclick="hug('${d.id}')" class="flex items-center gap-1 text-xs ${hugged?'text-emerald-400':''}">${hugged?'🤗':'🫂'} ${d.hugsCount||0} Peluk</button>
-<button onclick="openC('${d.id}')" class="text-xs">💬 ${d.commentsCount||0}</button>
-<button onclick="savePost('${d.id}')" class="text-xs ${saved?'text-emerald-400':''}">${saved?'🔖 Tersimpan':'🔖 Simpan'}</button>
-<button onclick="share('${d.id}')" class="text-xs">🔗 Share</button>
-</div>
-</div>`
+<div class="flex justify-between"><b class="text-xs">${esc(d.author||"Anonim")}</b><span class="text-[10px] text-[#7a9a8a]">#${d.tag} • ${fmt(d.createdAt)}</span></div>
+<b class="text-[14px] block mt-2">${esc(d.title)}</b>
+<p class="text-[13px] mt-2 text-[#c5d5cc] whitespace-pre-wrap">${esc(d.text)}</p>
+<div class="flex justify-between mt-4 pt-3 border-t border-[#1f332b]/50 text-xs">
+<button onclick="hug('${d.id}')">🤗 ${d.hugsCount||0} Peluk</button>
+<button onclick="savePost('${d.id}')" class="${saved?'text-emerald-400':''}">${saved?'🔖 Tersimpan':'🔖 Simpan'}</button>
+<button onclick="share()">🔗 Share</button>
+</div></div>`
 }).join("")
 }
 
-function rc(){
-let list=pcache.slice().sort((a,b)=>(b.createdAt?.toDate?.()?.getTime()||0)-(a.createdAt?.toDate?.()?.getTime()||0));
-$("pc").textContent=list.length;
-if(!list.length){
-$("lc").innerHTML=`<div class="text-center py-10"><p class="text-xs text-[#7a9a8a]">Privat aman, hanya kamu yang bisa lihat.<br>Tulis yang paling jujur di sini.</p></div>`;
-return
-}
-$("lc").innerHTML=list.map(d=>`<div class="bg-[#1a2520] border border-[#1f332b] rounded-2xl p-4">
-<div class="flex justify-between">
-<span class="text-[9px] bg-emerald-500 text-black px-2 py-1 rounded-full font-bold">#${d.tag}</span>
-<div class="flex gap-1">
-<button onclick="editPrivat('${d.id}')" class="text-[10px] bg-[#0d1411] border px-2 py-1 rounded-full">✏️</button>
-<button onclick="delPrivat('${d.id}')" class="text-[10px] bg-red-500/20 px-2 py-1 rounded-full">🗑️</button>
-</div>
-</div>
-<b class="text-sm block mt-2">${esc(d.title||"")}</b>
-<p class="text-[13px] mt-2 text-[#c5d5cc] whitespace-pre-wrap ${d.font||"fj"} ${d.bold?"font-bold":""} ${d.italic?"italic":""}">${esc(d.text)}</p>
-<p class="text-[10px] text-[#5a7a6a] mt-2">${fmt(d.createdAt)}</p>
-</div>`).join("")
-}
-
-// ACTIONS
 window.hug=async id=>{
-let r=doc(db,"cerita_publik",id),s=await getDoc(r),hg=s.data().hugs?.includes(cur.uid);
-if(hg){
-await updateDoc(r,{hugs:arrayRemove(cur.uid),hugsCount:increment(-1)});
-toast("Pelukan dibatalkan");
-}else{
-await updateDoc(r,{hugs:arrayUnion(cur.uid),hugsCount:increment(1)});
-toast("Kamu memeluk 🤗 - Kamu gak sendiri!");
-}
+let r=doc(db,"cerita_publik",id);
+let snap=await getDoc(r);
+let uid=localStorage.getItem('myUid')||'anon-'+Math.random().toString(36).slice(2);
+localStorage.setItem('myUid',uid);
+let hg=snap.data().hugs?.includes(uid);
+if(hg)await updateDoc(r,{hugs:arrayRemove(uid),hugsCount:increment(-1)});
+else await updateDoc(r,{hugs:arrayUnion(uid),hugsCount:increment(1)});
 };
-
 window.savePost=id=>{
-if(savedIds.includes(id)){
-savedIds=savedIds.filter(x=>x!=id);
-}else{savedIds.push(id)}
-localStorage.setItem('saved',JSON.stringify(savedIds));
-rp();
-toast(savedIds.includes(id)?"Disimpan ke bookmark 🔖":"Dihapus dari simpan");
+if(savedIds.includes(id))savedIds=savedIds.filter(x=>x!=id);else savedIds.push(id);
+localStorage.setItem('saved',JSON.stringify(savedIds));rp();toast(savedIds.includes(id)?"Disimpan 🔖":"Dihapus")
 };
+window.share=()=>{navigator.clipboard.writeText(location.href);toast("Link disalin 🔗")};
 
-window.openC=id=>{
-act=id;$("cm").classList.remove("hidden");
-let col=collection(db,"cerita_publik",id,"comments");
-onSnapshot(query(col),snap=>{
-let l=$("cl");
-if(snap.empty){l.innerHTML='<p class="text-xs text-center py-8 text-[#7a9a8a]">Jadi yang pertama kasih dukungan 🤗</p>';return}
-l.innerHTML=snap.docs.map(d=>`<div class="bg-[#0d1411] border border-[#1f332b] p-3 rounded-2xl text-xs">
-<b class="text-[10px] text-emerald-400">${esc(d.data().author||'Anonim')}</b>
-<p class="mt-1 leading-relaxed">${esc(d.data().text)}</p>
-</div>`).join("")
-})
-};
-
-window.share=async id=>{
-await navigator.clipboard.writeText("https://mohamadyasserarafath-ctrl.github.io/Ruang-Lega/");
-toast("Link disalin 🔗");
-await updateDoc(doc(db,"cerita_publik",id),{sharesCount:increment(1)})
-};
-
-window.reportPost=async id=>{
-if(!confirm("Laporkan cerita ini karena tidak pantas?"))return;
-await updateDoc(doc(db,"cerita_publik",id),{reports:increment(1)});
-toast("Terima kasih, laporan diterima. Kami cek 🙏");
-};
-
-window.editPost=async id=>{
-let d=cache.find(x=>x.id==id);
-editId=id;
-$("editTitle").value=d.title;
-$("editText").value=d.text;
-$("editModal").classList.remove("hidden");
-};
-window.delPost=async id=>{
-if(!confirm("Hapus cerita publik ini? Tidak bisa dikembalikan"))return;
-await deleteDoc(doc(db,"cerita_publik",id));
-toast("Cerita dihapus");
-};
-
-window.editPrivat=async id=>{
-let d=pcache.find(x=>x.id==id);
-let nt=prompt("Edit judul:",d.title);
-if(nt===null)return;
-let nc=prompt("Edit cerita:",d.text);
-if(nc===null)return;
-await updateDoc(doc(db,"curhat",id),{title:nt,text:nc});
-toast("Privat diperbarui");
-};
-window.delPrivat=async id=>{
-if(!confirm("Hapus cerita privat ini permanen?"))return;
-await deleteDoc(doc(db,"curhat",id));
-toast("Privat dihapus");
-};
-
-$("editClose").onclick=()=>$("editModal").classList.add("hidden");
-$("editCancel").onclick=()=>$("editModal").classList.add("hidden");
-$("editSave").onclick=async()=>{
-if(!editId)return;
-await updateDoc(doc(db,"cerita_publik",editId),{title:$("editTitle").value,text:$("editText").value});
-$("editModal").classList.add("hidden");
-toast("Cerita diperbarui ✨");
-};
-
-$("cx").onclick=()=>$("cm").classList.add("hidden");
-$("cm").onclick=(e)=>{if(e.target.id=="cm")$("cm").classList.add("hidden")};
-$("cs").onclick=async()=>{
-let t=$("ci").value.trim();
-if(!t||!act)return;
-if(t.toLowerCase().includes("bunuh diri")){$("sosModal").classList.remove("hidden");return}
-await addDoc(collection(db,"cerita_publik",act,"comments"),{text:t,uid:cur.uid,author:$("pn").value||"Anonim",createdAt:serverTimestamp()});
-await updateDoc(doc(db,"cerita_publik",act),{commentsCount:increment(1)});
-$("ci").value="";
-toast("Dukungan terkirim 🤗");
-};
-
-// FILTER & NAV
 document.querySelectorAll(".fc").forEach(b=>{
 b.onclick=()=>{
 document.querySelectorAll(".fc").forEach(x=>x.className="fc px-3 py-1.5 rounded-full bg-[#1a2520] text-[10px]");
@@ -513,7 +174,6 @@ rp()
 }
 });
 $("sr").oninput=rp;
-
 document.querySelectorAll(".nv").forEach(btn=>{
 btn.onclick=()=>{
 let v=btn.dataset.v;
@@ -521,56 +181,18 @@ document.querySelectorAll(".nv").forEach(x=>x.className="nv flex-1 p-3 text-[10p
 btn.className="nv flex-1 p-3 text-[10px] bg-emerald-500 text-black font-bold";
 $("vb").classList.toggle("hidden",v!="b");
 $("vt").classList.toggle("hidden",v!="t");
-$("vc").classList.toggle("hidden",v!="c");
-$("vp").classList.toggle("hidden",v!="p");
-$("fb").classList.toggle("hidden",v!="b");
-if(v=="t")loadDraft();
+if(v=="c"){document.querySelector('[data-t="Saved"]').click(); $("vb").classList.remove("hidden"); $("vt").classList.add("hidden")}
 }
 });
 
-// PROFILE SAVE
-$("bS").onclick=async()=>{
-await setDoc(doc(db,"profiles",cur.uid),{displayName:$("pn").value,bio:$("pb").value,avatar:sel,updatedAt:serverTimestamp()},{merge:true});
-$("ha").textContent=sel;
-$("hn").textContent=$("pn").value||"Anonim";
-toast("Profil disimpan ✨")
-};
-
-// AUTH STATE
-onAuthStateChanged(auth,async u=>{
-if(u){
-cur=u;
-$("a").classList.add("hidden");
-$("ms").classList.remove("hidden");
-$("ms").classList.add("flex");
-$("pe").textContent=u.email;
-loadDraft();
-try{
-let ps=await getDoc(doc(db,"profiles",u.uid));
-if(ps.exists()){
-let d=ps.data();
-$("pn").value=d.displayName||"";
-$("pb").value=d.bio||"";
-sel=d.avatar||"🌿";
-$("pa").textContent=sel;
-$("ha").textContent=sel;
-$("hn").textContent=d.displayName||"Anonim"
-}
-}catch{}
 onSnapshot(query(collection(db,"cerita_publik")),s=>{
 cache=[];s.forEach(d=>cache.push({id:d.id,...d.data()}));
 cache.sort((a,b)=>(b.createdAt?.toDate?.()?.getTime()||0)-(a.createdAt?.toDate?.()?.getTime()||0));
-rp()
-});
-onSnapshot(query(collection(db,"curhat"),where("uid","==",u.uid)),s=>{
-pcache=[];s.forEach(d=>pcache.push({id:d.id,...d.data()}));
-rc()
-})
-}else{
-$("ms").classList.add("hidden");
-$("a").classList.remove("hidden")
-}
+let moods={Sedih:0,Cemas:0,Lega:0,Bersyukur:0};cache.forEach(d=>{if(d.mood?.includes("Sedih"))moods.Sedih++;else if(d.mood?.includes("Cemas"))moods.Cemas++;else if(d.mood?.includes("Lega"))moods.Lega++;else moods.Bersyukur++});
+let max=Math.max(...Object.values(moods),1);
+$("moodBar").innerHTML=Object.entries(moods).map(([k,v])=>`<div class="flex-1 bg-emerald-500/60 rounded-t" style="height:${(v/max*100)||5}%"></div>`).join("");
+rp();
 });
 </script>
 </body>
-  </html>
+</html>
